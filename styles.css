@@ -1,851 +1,1495 @@
 /* VARIÁVEIS DE COR, TIPOGRAFIA E ESTÉTICA */
 :root {
+    /* Define variáveis globais que podem ser reutilizadas em todo o código */
     --color-bg-dark: #050505;
+    /* Cor de fundo quase preta */
     --color-bg-darker: #000000;
+    /* Cor preta absoluta */
     --color-bg-light: #121212;
+    /* Cor cinza muito escuro para diferenciar seções */
     --color-gold: #D4AF37;
+    /* Cor dourada principal da identidade visual */
     --color-gold-hover: #b5952f;
+    /* Tom de dourado mais escuro para o efeito hover (passar o mouse) */
     --color-text: #f0f0f0;
+    /* Cor do texto principal (quase branco para não cansar a vista) */
     --color-text-muted: #a0a0a0;
+    /* Cor do texto secundário/informativo (cinza claro) */
     --color-white: #ffffff;
+    /* Cor branca pura */
     --font-heading: 'Space Grotesk', sans-serif;
+    /* Fonte definida para os títulos */
     --font-body: 'Inter', sans-serif;
+    /* Fonte definida para os textos comuns */
     --border-radius: 8px;
+    /* Valor padrão para arredondar cantos de botões e cards */
     --transition: all 0.3s ease;
+    /* Tempo e estilo padrão das animações (0.3 segundos, suave) */
 }
 
 /* RESET E BASE */
 * {
+    /* O asterisco seleciona TODOS os elementos da página */
     margin: 0;
+    /* Remove as margens externas padrão do navegador */
     padding: 0;
+    /* Remove os espaçamentos internos padrão do navegador */
     box-sizing: border-box;
+    /* Faz com que bordas e paddings não aumentem o tamanho total do elemento */
 }
 
 html {
+    /* Estilos aplicados à raiz da página */
     scroll-behavior: smooth;
+    /* Cria o efeito de rolagem suave ao clicar em links âncora (ex: ir para #sobre) */
 }
 
 body {
+    /* Estilos aplicados ao corpo principal da página */
     font-family: var(--font-body);
+    /* Aplica a fonte de texto padrão */
     background-color: var(--color-bg-darker);
+    /* Define o fundo geral como preto */
     color: var(--color-text);
+    /* Define a cor geral do texto */
     line-height: 1.6;
+    /* Aumenta o espaçamento entre as linhas de texto para facilitar a leitura */
     overflow-x: hidden;
+    /* Evita que a página crie rolagem horizontal se algo ultrapassar a largura da tela */
 }
 
 a {
+    /* Estilos para todos os links da página */
     text-decoration: none;
+    /* Remove o sublinhado padrão dos links */
     color: inherit;
+    /* Faz o link herdar a cor do elemento onde ele está dentro */
 }
 
 ul {
+    /* Estilos para listas não ordenadas */
     list-style: none;
+    /* Remove as bolinhas (marcadores) padrão das listas */
 }
 
+/* CLASSES UTILITÁRIAS GERAIS */
 .container {
+    /* Classe para alinhar e limitar a largura do conteúdo no meio da tela */
     max-width: 1200px;
+    /* Largura máxima que o conteúdo pode atingir em telas grandes */
     margin: 0 auto;
+    /* Centraliza a caixa na tela (margem cima/baixo 0, esquerda/direita automática) */
     padding: 0 5%;
+    /* Adiciona um espaço nas laterais para o conteúdo não grudar na borda em telas menores */
 }
 
 .section {
+    /* Classe padrão para todas as seções grandes (Sobre, Eventos, Inscrição) */
     padding: 100px 0;
+    /* Adiciona 100px de respiro (espaço) em cima e embaixo da seção */
 }
 
 .bg-dark {
+    /* Classe para aplicar o fundo cinza escuro em seções alternadas */
     background-color: var(--color-bg-light);
+    /* Puxa a variável de cor cinza escuro */
 }
 
 .text-gold {
+    /* Classe para pintar palavras específicas de dourado */
     color: var(--color-gold);
+    /* Aplica a cor dourada */
 }
 
 .section-title {
+    /* Classe para os títulos grandes das seções */
     font-family: var(--font-heading);
+    /* Aplica a fonte de títulos */
     font-size: clamp(2rem, 4vw, 2.5rem);
+    /* Tamanho dinâmico: min 2rem, ideal 4% da tela, max 2.5rem */
     font-weight: 700;
+    /* Deixa a fonte em negrito forte */
     margin-bottom: 2rem;
+    /* Espaço de 2rem abaixo do título */
     text-transform: uppercase;
+    /* Força todas as letras a ficarem MAIÚSCULAS */
     letter-spacing: -0.02em;
+    /* Aproxima levemente as letras para um visual mais moderno */
 }
 
 .text-center {
+    /* Classe para centralizar textos */
     text-align: center;
+    /* Centraliza o texto horizontalmente */
 }
 
 /* BOTÕES */
 .btn {
+    /* Base para todos os botões */
     display: inline-flex;
+    /* Permite alinhar o botão ao lado de outros e centralizar o conteúdo dentro dele */
     align-items: center;
+    /* Centraliza o texto verticalmente dentro do botão */
     justify-content: center;
+    /* Centraliza o texto horizontalmente dentro do botão */
     padding: 0.8rem 1.8rem;
+    /* Espaço interno (altura e largura) do botão */
     font-family: var(--font-heading);
+    /* Fonte de título no botão */
     font-weight: 600;
+    /* Texto em semi-negrito */
     text-transform: uppercase;
+    /* Letras maiúsculas */
     letter-spacing: 0.05em;
+    /* Espaçamento entre letras */
     cursor: pointer;
+    /* Muda a setinha do mouse para a "mãozinha" ao passar por cima */
     transition: var(--transition);
+    /* Aplica a animação suave definida nas variáveis */
     border: none;
+    /* Remove a borda padrão do HTML */
     text-align: center;
+    /* Garante alinhamento central */
     border-radius: var(--border-radius);
+    /* Arredonda as pontas usando a variável global */
 }
 
 .btn-primary {
+    /* Estilo específico do botão principal (dourado) */
     background-color: var(--color-gold);
+    /* Fundo dourado */
     color: #000;
+    /* Texto preto para dar contraste */
 }
 
 .btn-primary:hover {
+    /* O que acontece ao passar o mouse no botão principal */
     background-color: var(--color-gold-hover);
+    /* Escurece o dourado */
     transform: translateY(-2px);
+    /* Faz o botão "subir" 2 pixels, dando efeito de clique flutuante */
     box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+    /* Cria uma sombra brilhante dourada embaixo */
 }
 
 .btn-secondary {
+    /* Estilo do botão secundário (fundo transparente, borda branca) */
     background-color: transparent;
+    /* Fundo transparente */
     color: var(--color-white);
+    /* Texto branco */
     border: 1px solid var(--color-white);
+    /* Borda branca fina de 1 pixel */
 }
 
 .btn-secondary:hover {
+    /* O que acontece ao passar o mouse no botão secundário */
     background-color: var(--color-white);
+    /* O fundo fica branco cheio */
     color: #000;
+    /* O texto muda para preto */
 }
 
 .btn-outline {
+    /* Estilo do botão de contorno dourado */
     background-color: transparent;
+    /* Fundo transparente */
     color: var(--color-gold);
+    /* Texto dourado */
     border: 1px solid var(--color-gold);
+    /* Borda dourada fina */
 }
 
 .btn-outline:hover {
+    /* O que acontece ao passar o mouse no botão outline */
     background-color: var(--color-gold);
+    /* Fundo preenche de dourado */
     color: #000;
+    /* Texto fica preto */
 }
 
-/* HEADER & NAVEGAÇÃO */
+/* HEADER & NAVEGAÇÃO - TEMA CLARO */
 .header {
+    /* Barra superior do site */
     position: fixed;
+    /* Fixa o header no topo da tela, ele te acompanha ao rolar */
     top: 0;
+    /* Cola exatamente no topo */
     left: 0;
+    /* Cola na esquerda */
     width: 100%;
+    /* Ocupa 100% da largura da tela */
     height: 90px;
-    background-color: rgba(10, 10, 10, 0.7);
+    /* Altura fixa inicial de 90 pixels */
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Fundo branco com 95% de opacidade (quase sólido) */
     backdrop-filter: blur(16px);
+    /* Cria um efeito de vidro embaçado para o que passar por trás dele */
     -webkit-backdrop-filter: blur(16px);
+    /* Suporte do efeito de vidro para o navegador Safari */
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Garante que o menu fique por cima de tudo no site (camada 1000) */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    /* Linha divisória cinza clara muito sutil embaixo do header */
     display: flex;
+    /* Flexbox para organizar os itens (logo e menu) lado a lado */
     align-items: center;
+    /* Centraliza itens verticalmente */
     transition: var(--transition);
+    /* Suaviza mudanças, como quando ele diminui de tamanho */
 }
 
-/* Efeito ao rolar a página */
+/* Efeito ativado pelo Javascript ao rolar a página para baixo */
 .header.scrolled {
     height: 75px;
-    background-color: rgba(5, 5, 5, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* Diminui a altura do menu para liberar espaço de leitura na tela */
+    background-color: rgba(255, 255, 255, 1);
+    /* O fundo fica 100% sólido (sem transparência) */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Adiciona uma sombra clara projetada embaixo do menu */
 }
 
 .header-container {
+    /* Agrupa os itens dentro do header limitando a largura */
     display: flex;
+    /* Flexbox para alinhar elementos */
     justify-content: space-between;
+    /* Empurra a logo para a esquerda e os botões para a direita */
     align-items: center;
+    /* Centraliza verticalmente */
     width: 100%;
+    /* Pega toda a largura disponível */
     height: 100%;
+    /* Pega toda a altura do header */
 }
 
 .logo {
+    /* Caixa que envolve a logo */
     display: flex;
+    /* Flexbox para alinhar */
     align-items: center;
+    /* Centraliza verticalmente */
     height: 100%;
+    /* Pega a altura total do container */
 }
 
 .logo-link {
+    /* O link que envolve a imagem da logo */
     display: flex;
+    /* Flexbox para alinhar */
     align-items: center;
-    flex-shrink: 0; 
+    /* Centraliza verticalmente */
+    flex-shrink: 0;
+    /* Impede que a logo seja "esmagada" se faltar espaço na tela */
 }
 
-/* Tratamento elegante para logo com fundo transparente */
 .img-logo {
-    height: 55px;
+    /* A imagem da logo da BS SPORTS no cabeçalho */
+    height: 60px;
+    /* Define a altura da logo */
     width: auto;
+    /* A largura ajusta automaticamente para não distorcer a imagem */
     object-fit: contain;
-    background-color: var(--color-white);
-    padding: 5px 20px;
-    border-radius: 50px; /* Formato pílula */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    /* Garante que a imagem caiba perfeitamente sem ser cortada */
     transition: var(--transition);
+    /* Animação suave de crescimento (hover) */
 }
 
 .header.scrolled .img-logo {
-    height: 48px;
+    /* Regra para a logo quando a tela é rolada (menu reduzido) */
+    height: 50px;
+    /* Diminui a logo proporcionalmente à diminuição do menu */
 }
 
 .img-logo:hover {
+    /* Quando passar o mouse na logo do menu */
     transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    /* Aumenta o tamanho da logo em 5% */
 }
 
-/* NAV DESKTOP */
+/* NAV DESKTOP (Menu para Computadores) */
 .nav-desktop {
+    /* Caixa que envolve os links Início, Sobre, etc */
     display: flex;
+    /* Flexbox para colocar os links lado a lado */
     align-items: center;
+    /* Centraliza verticalmente */
     gap: 2.5rem;
+    /* Espaçamento de 2.5rem (aprox 40px) entre cada link */
 }
 
 .nav-desktop a {
-    color: var(--color-white);
+    /* Estilos individuais para cada link do menu */
+    color: #000000;
+    /* Cor preta para os links (combina com fundo branco) */
     font-size: 0.85rem;
-    font-weight: 600;
+    /* Tamanho da fonte do link */
+    font-weight: 700;
+    /* Fonte mais grossa (negrito) */
     text-transform: uppercase;
+    /* Tudo em maiúsculas */
     letter-spacing: 0.05em;
+    /* Espaçamento entre letras */
     position: relative;
+    /* Necessário para criar a linha dourada embaixo (after) */
     padding: 0.5rem 0;
+    /* Espaço de clique em cima e embaixo do texto */
     transition: color 0.3s ease;
+    /* Animação ao mudar a cor da fonte */
 }
 
 .nav-desktop a::after {
+    /* Elemento invisível criado embaixo de cada link (a linha dourada) */
     content: '';
+    /* Conteúdo vazio, pois será só uma linha */
     position: absolute;
+    /* Posicionamento livre em relação ao link */
     bottom: 0;
+    /* Fica colado na parte de baixo do texto */
     left: 0;
+    /* Começa na esquerda */
     width: 0;
+    /* Começa com largura zero (invisível) */
     height: 2px;
+    /* Espessura da linha */
     background-color: var(--color-gold);
+    /* Cor da linha: dourada */
     transition: width 0.3s ease;
+    /* Anima a largura da linha de 0 a 100% suavemente */
 }
 
 .nav-desktop a:hover {
+    /* Quando passar o mouse no texto do link */
     color: var(--color-gold);
+    /* O texto fica dourado */
 }
 
 .nav-desktop a:hover::after {
+    /* Quando passar o mouse no link, o que acontece com a linha */
     width: 100%;
+    /* A linha dourada cresce e sublinha toda a palavra */
 }
 
 .nav-btn {
+    /* Botão "Acessar Plataforma" no menu */
     padding: 0.7rem 1.6rem;
+    /* Tamanho ajustado específico para o menu */
     font-size: 0.85rem;
+    /* Fonte menor */
     border-radius: 50px;
+    /* Bordas super arredondadas, estilo pílula */
 }
 
 .mobile-menu-btn {
+    /* Botão do menu hamburguer (☰) para celulares */
     display: none;
+    /* Inicia oculto em telas de computador (desktop) */
     background: none;
+    /* Sem fundo */
     border: none;
-    color: var(--color-white);
+    /* Sem bordas */
+    color: #000000;
+    /* Cor do ícone preta */
     font-size: 2rem;
+    /* Tamanho do ícone */
     cursor: pointer;
+    /* Cursor de clique */
     transition: transform 0.3s ease;
+    /* Animação suave para quando clicar nele */
 }
 
-/* MENU MOBILE DROPDOWN */
+.mobile-menu-btn:hover {
+    /* Ao passar o mouse no menu hamburguer */
+    color: var(--color-gold);
+    /* Ícone fica dourado */
+}
+
+/* MENU MOBILE DROPDOWN (Menu que abre no celular) */
 .nav-mobile {
     display: flex;
+    /* Organiza os itens */
     flex-direction: column;
+    /* Coloca um link embaixo do outro */
     position: absolute;
+    /* Posiciona flutuando fora do fluxo normal da página */
     top: 90px;
+    /* Começa logo abaixo do header (que tem 90px de altura inicial) */
     left: 0;
+    /* Cola na esquerda */
     width: 100%;
-    background-color: rgba(15, 15, 15, 0.98);
+    /* Preenche a tela toda na horizontal */
+    background-color: rgba(255, 255, 255, 0.98);
+    /* Fundo branco quase sólido */
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    /* Efeito blur de fundo */
+    border-bottom: 3px solid var(--color-gold);
+    /* Linha grossa dourada no fim do menu para acabamento */
     max-height: 0;
+    /* Começa com altura 0 (escondido) */
     overflow: hidden;
+    /* Esconde tudo que passar da altura 0 */
     opacity: 0;
+    /* Começa 100% transparente */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    /* Animação mais sofisticada de "deslizar para baixo" */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* Sombra embaixo do menu aberto */
 }
 
 .header.scrolled .nav-mobile {
+    /* Se o usuário rolou a tela e abrir o menu... */
     top: 75px;
+    /* O menu abrirá na altura de 75px, acompanhando a redução do header */
 }
 
 .nav-mobile.active {
+    /* Classe adicionada via Javascript quando clica no botão hamburguer */
     max-height: 500px;
+    /* Expande o limite de altura para mostrar os itens */
     opacity: 1;
+    /* Fica 100% visível */
     padding: 1rem 5% 2rem;
+    /* Adiciona espaçamentos internos ao menu aberto */
 }
 
 .mobile-link {
+    /* Links dentro do menu de celular */
     padding: 1.2rem 0;
-    color: var(--color-white);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Espaço para "gordura de dedo" no toque do celular */
+    color: #000000;
+    /* Texto preto */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    /* Linha cinza clara sutil dividindo cada link */
     text-transform: uppercase;
+    /* Letras maiúsculas */
     font-size: 1rem;
-    font-weight: 600;
+    /* Fonte tamanho normal */
+    font-weight: 700;
+    /* Texto em negrito */
     letter-spacing: 0.05em;
+    /* Espaçamento de letras */
     transition: var(--transition);
+    /* Animação padrão */
 }
 
 .mobile-link:hover {
+    /* Ao tocar/passar o mouse no link do menu mobile */
     color: var(--color-gold);
+    /* Fica dourado */
     padding-left: 15px;
+    /* "Empurra" o texto 15px para a direita (efeito de interação legal) */
     border-bottom-color: rgba(212, 175, 55, 0.3);
+    /* A linha embaixo muda para dourada translúcida */
 }
 
-/* HERO */
+/* HERO (Seção Principal / Capa com a bola de futebol) */
 .hero {
     position: relative;
+    /* Serve como base para posicionar o fundo (background image) com absolute */
     min-height: 100vh;
+    /* Altura mínima de 100% da tela do usuário */
     display: flex;
+    /* Para alinhar o texto dentro dela */
     align-items: center;
+    /* Centraliza o texto verticalmente na tela */
     padding-top: 90px;
+    /* Joga o conteúdo 90px para baixo, para não ficar escondido atrás do header fixo */
 }
 
 .hero-bg {
+    /* Div que segura a imagem de fundo */
     position: absolute;
+    /* Fica "solta" para preencher a seção Hero */
     top: 0;
+    /* Cola em cima */
     left: 0;
+    /* Cola na esquerda */
     width: 100%;
+    /* Largura total */
     height: 100%;
+    /* Altura total */
     z-index: -1;
+    /* Joga a imagem para trás de todos os textos (camada negativa) */
     overflow: hidden;
+    /* Corta sobras da imagem se houver */
 }
 
 .hero-bg img {
+    /* A tag da imagem da bola de futebol em si */
     width: 100%;
+    /* Força a imagem a preencher a largura da div */
     height: 100%;
+    /* Força preencher a altura da div */
     object-fit: cover;
+    /* Faz a imagem cobrir tudo perfeitamente sem amassar/distorcer (corta as bordas se necessário) */
 }
 
+/* Película mais escura sobre a imagem de fundo (Adicionado para garantir contraste) */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%);
+    /* Deixamos o fundo 65% escuro de forma uniforme para dar contraste e melhorar a leitura */
+    background-color: rgba(0, 0, 0, 0.65);
 }
 
-.hero-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    line-height: 1.1;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-}
-
-.hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    max-width: 600px;
-    margin-bottom: 2.5rem;
-    color: var(--color-text-muted);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-/* ABOUT */
-.about-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.about-text p {
-    margin-bottom: 1.5rem;
-    color: var(--color-text-muted);
-}
-
-.about-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.stat-item {
-    background-color: var(--color-bg-light);
-    padding: 2rem;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    text-align: center;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.stat-item:hover {
-    transform: translateY(-5px);
-    border-color: rgba(212, 175, 55, 0.5);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.stat-number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
-}
-
-/* MODALIDADES & EVENTOS GRID */
-.sports-grid, .events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.sport-card {
-    position: relative;
-    height: 350px;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: var(--border-radius);
-}
-
-.sport-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease, filter 0.6s ease;
-    filter: grayscale(80%) brightness(0.7);
-}
-
-.sport-card:hover img {
-    transform: scale(1.08);
-    filter: grayscale(0%) brightness(1);
-}
-
-.sport-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 2.5rem 1.5rem 1.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-}
-
-.sport-overlay h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: var(--color-white);
-}
-
-/* TABS EVENTOS */
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 1rem;
-    flex-wrap: wrap;
-}
-
-.tab-btn {
-    background: none;
-    border: none;
-    color: var(--color-text-muted);
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    position: relative;
-    transition: var(--transition);
-}
-
-.tab-btn:hover {
-    color: var(--color-white);
-}
-
-.tab-btn.active {
-    color: var(--color-gold);
-}
-
-.tab-btn.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1.1rem;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-gold);
-}
-
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.event-card {
-    background-color: var(--color-bg-darker);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-}
-
-.event-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-
-.event-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.event-info {
-    padding: 1.8rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.event-badge {
-    align-self: flex-start;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    border-radius: 4px;
-}
-
-.badge-gold { background-color: var(--color-gold); color: #000; }
-.badge-outline { border: 1px solid var(--color-gold); color: var(--color-gold); }
-.badge-gray { background-color: #333; color: #fff; }
-
-.event-title {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-}
-
-.event-detail {
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-}
-
-.event-info .btn {
-    margin-top: auto;
-}
-
-/* FORMULÁRIO */
-.form-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--color-bg-darker);
-    padding: 3.5rem;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: var(--border-radius);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-    width: 100%;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.6rem;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 500;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 1rem;
-    background-color: var(--color-bg-light);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--color-white);
-    font-family: var(--font-body);
-    border-radius: 6px;
-    transition: border-color 0.3s;
-}
-
-input::placeholder, select::placeholder, textarea::placeholder {
-    color: #666;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--color-gold);
-    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-}
-
-/* LISTA DE ATLETAS */
-.athletes-section {
-    margin-top: 3rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.athletes-section h3 {
-    margin-bottom: 1.5rem;
-    font-family: var(--font-heading);
-    color: var(--color-white);
-}
-
-.athlete-row {
-    display: grid;
-    grid-template-columns: 2fr 1.2fr 1.2fr auto;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    align-items: center;
-    background-color: rgba(255,255,255,0.02);
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-.athlete-row .form-group {
-    margin-bottom: 0;
-}
-
-.remove-btn {
-    background-color: rgba(255, 68, 68, 0.1);
-    color: #ff4444;
-    border: 1px solid #ff4444;
-    padding: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-weight: 600;
-}
-
-.remove-btn:hover {
-    background-color: #ff4444;
-    color: #fff;
-}
-
-/* FOOTER */
-.footer {
-    background-color: var(--color-bg-light);
-    padding: 5rem 0 2rem;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 4rem;
-}
-
-.footer-logo-wrapper {
-    margin-bottom: 1.5rem;
+/* ESTILOS DA LOGO NA PRIMEIRA PÁGINA (HERO) */
+.hero-logo-wrapper {
+    margin-bottom: 2rem;
+    /* Espaço entre a logo e o título "Grandes eventos" */
     display: inline-block;
+    animation: fadeIn 1s ease;
+    /* Efeito de surgimento suave ao abrir o site */
 }
 
-.footer-logo {
-    height: 60px;
+.hero-logo {
+    height: 110px;
+    /* Tamanho grande para dar bastante destaque */
     width: auto;
     object-fit: contain;
     background-color: var(--color-white);
-    padding: 8px 25px;
-    border-radius: 50px;
+    /* Fundo branco para destacar os traços pretos da logo no fundo escuro */
+    padding: 12px 35px;
+    /* Espaço interno para a logo respirar */
+    border-radius: 100px;
+    /* Formato elegante de pílula */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.4);
+    /* Sombra escura + brilho dourado */
+}
+
+.hero-title {
+    /* O textão principal "Grandes eventos." */
+    font-family: var(--font-heading);
+    /* Fonte de títulos */
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    /* Tamanho de fonte que cresce/diminui conforme a tela (responsivo automático) */
+    line-height: 1.1;
+    /* Texto bem juntinho entre uma linha e outra */
+    font-weight: 700;
+    /* Negrito */
+    margin-bottom: 1.5rem;
+    /* Espaço embaixo do título */
+    text-transform: uppercase;
+    /* Maiúsculo */
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+    /* Sombra escura e esfumaçada atrás das letras para destacá-las */
+}
+
+.hero-subtitle {
+    /* O texto descritivo menor "Especialistas na organização..." */
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    /* Tamanho responsivo */
+    max-width: 600px;
+    /* Impede que o texto fique comprido demais em telas grandes (limita a 600px de largura) */
+    margin-bottom: 2.5rem;
+    /* Espaço para baixo antes de chegar aos botões */
+    color: var(--color-white);
+    /* Branco puro para destacar mais */
+    font-weight: 500;
+    /* Deixamos a letra levemente mais gordinha */
+    text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.9);
+    /* Sombra pesada para garantir a leitura impecável contra fundos claros */
+}
+
+.hero-buttons {
+    /* Caixa que segura os botões "Fazer inscrição" e "Eventos" */
+    display: flex;
+    /* Alinha eles lado a lado */
+    gap: 1rem;
+    /* Espaço de 1rem (16px) entre os botões */
+    flex-wrap: wrap;
+    /* Se não couberem na mesma linha, um cai para a linha de baixo (celular) */
+}
+
+/* ABOUT (Seção Nossa História e Números) */
+.about-container {
+    /* Grid estrutural da seção 'Sobre' */
+    display: grid;
+    /* Transforma a área em uma grade (Grid) */
+    grid-template-columns: 1fr 1fr;
+    /* Divide a área em 2 colunas de tamanhos iguais (1 Fraction cada) */
+    gap: 4rem;
+    /* Cria um vão bem grande (4rem) entre a coluna de texto e a de números */
+    align-items: center;
+    /* Alinha o conteúdo verticalmente no meio */
+}
+
+.about-text p {
+    /* Parágrafos dentro do texto de 'Nossa História' */
+    margin-bottom: 1.5rem;
+    /* Espaço entre os parágrafos */
+    color: var(--color-text-muted);
+    /* Cor cinza claro para o texto */
+}
+
+.about-stats {
+    /* Caixa que engloba os 4 quadrados com números */
+    display: grid;
+    /* Outra grade para organizar os 4 quadrados menores */
+    grid-template-columns: repeat(2, 1fr);
+    /* Cria duas colunas menores (quadrados 2x2) */
+    gap: 1.5rem;
+    /* Espaço entre os quadrados de estatísticas */
+}
+
+.stat-item {
+    /* Estilo de cada quadradinho individual de número (ex: "100+ Eventos") */
+    background-color: var(--color-bg-light);
+    /* Fundo cinza escuro no quadrado */
+    padding: 2rem;
+    /* Espaço interno grande */
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    /* Borda dourada bem transparente (15%) para demarcar suavemente */
+    text-align: center;
+    /* Centraliza número e texto */
+    border-radius: var(--border-radius);
+    /* Cantos arredondados */
+    transition: var(--transition);
+    /* Efeito suave de hover */
+}
+
+.stat-item:hover {
+    /* Ao passar o mouse nos quadrados de números */
+    transform: translateY(-5px);
+    /* O quadrado "sobe" 5 pixels flutuando */
+    border-color: rgba(212, 175, 55, 0.5);
+    /* A borda dourada fica mais visível (50% forte) */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    /* Adiciona sombra embaixo */
+}
+
+.stat-number {
+    /* Estilo dos números (100+, 5000+) */
     display: block;
+    /* Força o número a ocupar a linha inteira para jogar o texto para baixo */
+    font-family: var(--font-heading);
+    /* Fonte de destaque */
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    /* Fonte grande adaptável */
+    font-weight: 700;
+    /* Super negrito */
+    margin-bottom: 0.5rem;
+    /* Espaço pro texto de baixo */
+}
+
+.stat-label {
+    /* Estilo do textinho da estatística (ex: "Atletas") */
+    font-size: 0.85rem;
+    /* Letra pequena */
+    text-transform: uppercase;
+    /* Maiúscula */
+    letter-spacing: 0.05em;
+    /* Afasta um pouco as letras */
+    color: var(--color-text-muted);
+    /* Cinza claro */
+}
+
+/* MODALIDADES & EVENTOS GRID (Grid de Cartões de Imagem) */
+.sports-grid,
+.events-grid {
+    /* Regras compartilhadas para o catálogo de Modalidades e Catálogo de Eventos */
+    display: grid;
+    /* Estrutura de grade */
+    /* Este é o segredo da responsividade: 
+       Cria colunas automáticas. O mínimo que cada cartão pode ter é 280px. 
+       Se sobrar espaço, divide igualmente (1fr). No celular, cai pra 1 coluna só. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    /* Espaço de 2rem entre os cartões */
+}
+
+.sport-card {
+    /* Estilo do card individual de Modalidade (Futebol, Vôlei, etc) */
+    position: relative;
+    /* Serve como base para o gradiente de sobreposição e o título no absolute */
+    height: 350px;
+    /* Altura fixa de 350px para todos ficarem alinhados e iguais */
+    overflow: hidden;
+    /* Se a imagem tentar crescer para fora do card, corta a sobra (efeito zoom in sem vazar borda) */
+    cursor: pointer;
+    /* Mãozinha de clique */
+    border-radius: var(--border-radius);
+    /* Bordas arredondadas */
+}
+
+.sport-card img {
+    /* Imagem do esporte dentro do card */
+    width: 100%;
+    /* Preenche todo o card na largura */
+    height: 100%;
+    /* Preenche todo o card na altura */
+    object-fit: cover;
+    /* Corta mantendo proporção ideal */
+    transition: transform 0.6s ease, filter 0.6s ease;
+    /* Animação mais lenta (0.6s) para o zoom e a mudança de cor ficarem cinematográficos */
+    filter: grayscale(80%) brightness(0.7);
+    /* Efeito inicial: A foto fica 80% preto e branco e 30% escurecida */
+}
+
+.sport-card:hover img {
+    /* Quando o mouse passa em cima do card da modalidade */
+    transform: scale(1.08);
+    /* A foto dá um zoom (aumenta 8%) */
+    filter: grayscale(0%) brightness(1);
+    /* A foto volta 100% colorida e na luz original, chamando atenção! */
+}
+
+.sport-overlay {
+    /* Película escura na base do card para fazer o texto branco aparecer */
+    position: absolute;
+    /* Flutua em cima da imagem */
+    bottom: 0;
+    /* Cola na parte de baixo do card */
+    left: 0;
+    /* Cola na esquerda */
+    width: 100%;
+    /* Preenche largura */
+    padding: 2.5rem 1.5rem 1.5rem;
+    /* Espaçamento interno */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+    /* Fica preto bem forte na ponta de baixo e sobe sumindo (transparente) */
+}
+
+.sport-overlay h3 {
+    /* O título do esporte (ex: "Futebol") */
+    font-family: var(--font-heading);
+    /* Fonte de título */
+    font-size: 1.5rem;
+    /* Tamanho médio */
+    text-transform: uppercase;
+    /* Maiúsculo */
+    color: var(--color-white);
+    /* Branco */
+}
+
+/* TABS EVENTOS (Navegação: Em andamento, Próximos, Realizados) */
+.tabs {
+    /* Caixa que engloba os 3 botões de filtro */
+    display: flex;
+    /* Põe os botões em linha */
+    justify-content: center;
+    /* Centraliza eles */
+    gap: 1rem;
+    /* Espaço entre botões */
+    margin-bottom: 3rem;
+    /* Espaço embaixo antes dos cards de evento aparecerem */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Linha divisória cinza clara embaixo da navegação inteira */
+    padding-bottom: 1rem;
+    /* Espaço entre o botão e a linha divisória */
+    flex-wrap: wrap;
+    /* Em celulares pequenos, permite pular linha */
+}
+
+.tab-btn {
+    /* Cada botão de filtro das abas */
+    background: none;
+    /* Sem fundo */
+    border: none;
+    /* Sem borda HTML padrão */
+    color: var(--color-text-muted);
+    /* Cor cinza (pois tá inativo) */
+    font-family: var(--font-heading);
+    /* Fonte de títulos */
+    font-size: 1rem;
+    /* Tamanho do texto */
+    text-transform: uppercase;
+    /* Maiúsculo */
+    cursor: pointer;
+    /* Mãozinha de clique */
+    padding: 0.5rem 1rem;
+    /* Área de clique do botão */
+    position: relative;
+    /* Base para criar o risquinho inferior dourado no selected */
+    transition: var(--transition);
+    /* Efeito suave */
+}
+
+.tab-btn:hover {
+    /* Passar mouse no botão da aba */
+    color: var(--color-white);
+    /* Texto fica branquinho (mais claro que o cinza padrão) */
+}
+
+.tab-btn.active {
+    /* Classe que o Javascript aciona no botão atual clicado (aba ativa) */
+    color: var(--color-gold);
+    /* O texto fica todo dourado para indicar que é ele quem tá aberto */
+}
+
+.tab-btn.active::after {
+    /* O tracinho dourado embaixo do botão ativo */
+    content: '';
+    /* Elemento virtual vazio */
+    position: absolute;
+    /* Baseado no botão */
+    bottom: -1.1rem;
+    /* Empurrado exatamente para colar em cima da linha divisória gris do .tabs */
+    left: 0;
+    /* Cola na esquerda */
+    width: 100%;
+    /* Largura total do botão */
+    height: 2px;
+    /* Espessura do traço */
+    background-color: var(--color-gold);
+    /* Traço dourado */
+}
+
+.tab-content {
+    /* Os blocos de conteúdo com as listas de campeonatos. */
+    display: none;
+    /* Por padrão TODAS ficam ocultas (none). */
+}
+
+.tab-content.active {
+    /* A div tab-content que estiver ativa (acionada pelo JS) */
+    display: block;
+    /* Vira bloco visível na tela */
+    animation: fadeIn 0.5s ease;
+    /* Chama a animação FadeIn para aparecer suavemente, sem "piscar" duro na tela */
+}
+
+@keyframes fadeIn {
+
+    /* Criação da animação chamada fadeIn */
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    /* Começa 100% invisível e deslocado 15px pra baixo */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Termina 100% visível na posição original (0) */
+}
+
+/* EVENTOS CARD (Caixinha que mostra os torneios/copas) */
+.event-card {
+    background-color: var(--color-bg-darker);
+    /* Fundo preto liso */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Borda branca hiper fraca (5% de opacidade) */
+    border-radius: var(--border-radius);
+    /* Cantos redondos */
+    overflow: hidden;
+    /* Corta pontas da imagem que ultrapassarem os cantos redondos */
+    transition: var(--transition);
+    /* Animação */
+    display: flex;
+    /* Torna o card flexível */
+    flex-direction: column;
+    /* Organiza em coluna (Imagem em cima, texto embaixo) */
+}
+
+.event-card:hover {
+    /* Passar mouse no card do evento */
+    transform: translateY(-8px);
+    /* Ele "pula" 8 pixels pra cima */
+    border-color: rgba(212, 175, 55, 0.4);
+    /* A borda acende em dourado */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    /* Adiciona um sombreado pra parecer que desgrudou da tela */
+}
+
+.event-img {
+    /* Imagem do flyer do campeonato no card */
+    width: 100%;
+    /* Preenche todo card horizontalmente */
+    height: 220px;
+    /* Altura fixa para todos os cartazes de eventos ficarem iguais */
+    object-fit: cover;
+    /* Corta sem amassar a proporção */
+}
+
+.event-info {
+    /* Área de textos embaixo da imagem do evento */
+    padding: 1.8rem;
+    /* Distanciamento pra borda (respiro interno) */
+    display: flex;
+    /* Flexbox */
+    flex-direction: column;
+    /* Um debaixo do outro */
+    flex-grow: 1;
+    /* Faz esse bloco crescer pra baixo preenchendo qualquer buraco vazio (alinha botões no fundo) */
+}
+
+.event-badge {
+    /* Etiqueta de status do campeonato (Em Andamento, Inscrição aberta, etc) */
+    align-self: flex-start;
+    /* Joga a etiqueta pra extremidade esquerda superior, não deixando ocupar a linha toda */
+    padding: 0.3rem 0.8rem;
+    /* Espaço interno da etiqueta (pequena) */
+    font-size: 0.75rem;
+    /* Fonte micro */
+    text-transform: uppercase;
+    /* Maiúsculo */
+    font-weight: 700;
+    /* Negrito */
+    margin-bottom: 1rem;
+    /* Espaço embaixo antes do título */
+    border-radius: 4px;
+    /* Pontinhas da etiqueta minimamente redondas */
+}
+
+.badge-gold {
+    background-color: var(--color-gold);
+    color: #000;
+}
+
+/* Estilo da etiqueta dourada sólida */
+.badge-outline {
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+}
+
+/* Estilo de etiqueta com apenas contorno dourado */
+.badge-gray {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Estilo da etiqueta cinza (para eventos finalizados) */
+
+.event-title {
+    /* Título do evento ("Copa Ouro", etc) */
+    font-family: var(--font-heading);
+    /* Fonte de título */
+    font-size: 1.3rem;
+    /* Tamanho médio-grande */
+    margin-bottom: 0.8rem;
+    /* Espaço embaixo */
+}
+
+.event-detail {
+    /* Textinhos "Data", "Modalidade", "Local" do campeonato */
+    color: var(--color-text-muted);
+    /* Cinza claro */
+    font-size: 0.95rem;
+    /* Letra ligeiramente menor que padrão */
+    margin-bottom: 0.5rem;
+    /* Espacinho entre cada linha descritiva */
+}
+
+.event-info .btn {
+    /* Os botões ("Ver Detalhes", "Inscrever") dentro do card */
+    margin-top: auto;
+    /* O segredo que empurra sempre o botão pro fundo do card, independentemente se o evento tem muito ou pouco texto. Deixa os botões sempre alinhados na mesma base. */
+}
+
+/* FORMULÁRIO DE INSCRIÇÃO */
+.form-container {
+    /* Caixazona visual que abraça o formulário todo */
+    max-width: 800px;
+    /* Limita a largura pra não ficar gigante e esticado de ponta a ponta na tela do PC */
+    margin: 0 auto;
+    /* Centraliza a caixa no meio da seção */
+    background-color: var(--color-bg-darker);
+    /* Fundo preto liso */
+    padding: 3.5rem;
+    /* Espaço interno hiper generoso pros inputs respirarem longe das bordas */
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    /* Borda dourada clarinha para dar luxo (20%) */
+    border-radius: var(--border-radius);
+    /* Cantinhos arredondados na caixa */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    /* Mega sombra preta atrás projetando uma aparência 3D */
+}
+
+.form-group {
+    /* Cada par individual que segura "Label (Nome)" + "Campo Input/Caixinha de texto" */
+    margin-bottom: 1.5rem;
+    /* Espaço pra não grudar no campo de baixo */
+    width: 100%;
+    /* Toma largura total liberada */
+}
+
+.form-row {
+    /* Grid que põe dois campos lado a lado pra economizar espaço vertical */
+    display: grid;
+    /* Ativa Grid */
+    grid-template-columns: 1fr 1fr;
+    /* Coluna esquerda e coluna direita (50%/50%) */
+    gap: 1.5rem;
+    /* Vão no meio dos 2 campos laterais */
+}
+
+label {
+    /* Os textos descritivos acima das caixinhas ("Nome do Time *") */
+    display: block;
+    /* Garante que ficarão em cima do input e não do lado */
+    margin-bottom: 0.6rem;
+    /* Empurra o input um pouquinho pra baixo */
+    font-size: 0.85rem;
+    /* Fonte pequena */
+    color: var(--color-text-muted);
+    /* Letra cinza clara */
+    text-transform: uppercase;
+    /* Maiúscula */
+    letter-spacing: 0.05em;
+    /* Espaçado */
+    font-weight: 500;
+    /* Mais encorpadinha que normal */
+}
+
+input,
+select,
+textarea {
+    /* Regras pros campos de Digitar Texto, Caixa de Seleção e Caixa Grande (Observações) */
+    width: 100%;
+    /* Pega toda largura permitida na tela/coluna */
+    padding: 1rem;
+    /* Campo alto, "gordinho" pro celular ter facilidade em tocar */
+    background-color: var(--color-bg-light);
+    /* Fundo do input levemente cinza */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordas quase transparentes cinzas */
+    color: var(--color-white);
+    /* Cor do que você digitar: branco */
+    font-family: var(--font-body);
+    /* Mesma fonte do site */
+    border-radius: 6px;
+    /* Cantinho levemente redondo no input */
+    transition: border-color 0.3s;
+    /* Ao focar no campo ele anima a cor da borda com suavidade */
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+    /* Os textos de ajuda fantasmas sumiços, Ex: "seuemail@.com" */
+    color: #666;
+    /* Cinza médio, não atrapalha a leitura real mas dá a dica */
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    /* O que rola quando o usuário clica DENTRO de um campo pra digitar */
+    outline: none;
+    /* Tira aquela borda azul feia que o Chrome/Safari jogam padrão de fábrica */
+    border-color: var(--color-gold);
+    /* Acende a borda pra Dourado (Avisa: você está aqui!) */
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    /* Cria uma espécie de 'Aura' brilhante dourada e sutil em volta do input, moderno e premium */
+}
+
+/* LISTA DE ATLETAS DINÂMICA (Adicionada pelo Botão +) */
+.athletes-section {
+    /* Área separada que lista os jogadores do time */
+    margin-top: 3rem;
+    /* Separa bem de cima */
+    padding-top: 2.5rem;
+    /* Espaço interno no topo */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Cria uma risca de separação visual pra iniciar os jogadores */
+}
+
+.athletes-section h3 {
+    /* Título "Lista de Atletas" */
+    margin-bottom: 1.5rem;
+    /* Espaço para baixo */
+    font-family: var(--font-heading);
+    /* Fonte titular */
+    color: var(--color-white);
+    /* Texto branco */
+}
+
+.athlete-row {
+    /* A linhazona inteira contendo Nome, Data Nasc, Doc e Botão Excluir (1 jogador = 1 row) */
+    display: grid;
+    /* Grid para alinhar tudo coladinho horizontalmente */
+    /* São 4 colunas. 
+       - Coluna 1 (Nome) tem 2 pesos, logo fica com o maior tamanho de largura. 
+       - Colunas 2 (Data) e 3 (Doc) recebem 1.2 peso. 
+       - Coluna 4 (Botão fechar) pega um espaço 'auto' (só o suficiente pro botão caber). */
+    grid-template-columns: 2fr 1.2fr 1.2fr auto;
+    gap: 1rem;
+    /* Espaço nos vãos entre os campos do jogador */
+    margin-bottom: 1rem;
+    /* Espaço do jogador 1 pro jogador 2 */
+    align-items: center;
+    /* Mantem nivelado horizontal e verticalmente */
+    background-color: rgba(255, 255, 255, 0.02);
+    /* Fundo claríssimo com 2% de branco pra destacar o bloco do jogador da tela */
+    padding: 1rem;
+    /* Respiro em volta das caixinhas */
+    border-radius: var(--border-radius);
+    /* Cantos do bloco do jogador */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Borda hiper fina */
+}
+
+.athlete-row .form-group {
+    /* Dentro dessa linha especial, os grupos param de ter a margem pra baixo que eles herdaram */
+    margin-bottom: 0;
+    /* Remove a margem para ficar milimetricamente alinhado com o botão de excluir */
+}
+
+.remove-btn {
+    /* Botão X (Excluir jogador) */
+    background-color: rgba(255, 68, 68, 0.1);
+    /* Vermelho com 10% opacidade. Gera estilo moderno. */
+    color: #ff4444;
+    /* Ícone vermelho vivo */
+    border: 1px solid #ff4444;
+    /* Borda vermelha viva */
+    padding: 1rem;
+    /* Tamanho igual aos dos inputs */
+    border-radius: 6px;
+    /* Canto arredondado igual aos campos de texto */
+    cursor: pointer;
+    /* Mãozinha no mouse */
+    transition: var(--transition);
+    /* Efeito suave */
+    display: flex;
+    /* Pra alinhar o "X" no centro exato da div do botão */
+    align-items: center;
+    /* Vertical */
+    justify-content: center;
+    /* Horizontal */
+    height: 100%;
+    /* Força o botão de deletar a esticar verticalmente acompanhando e preenchendo a exata altura da linha */
+    font-weight: 600;
+    /* Negrito */
+}
+
+.remove-btn:hover {
+    /* Passar mouse no excluir */
+    background-color: #ff4444;
+    /* O vermelho vira forte/solido */
+    color: #fff;
+    /* O Xis fica branco pra dar contraste */
+}
+
+/* FOOTER - TEMA CLARO PARA INTEGRAR A LOGO */
+.footer {
+    /* Rodapé inferior no final da tela */
+    background-color: var(--color-white);
+    /* TODO O RODAPÉ FICA BRANCO para fundir a logo (retangular com fundo branco original) */
+    padding: 5rem 0 2rem;
+    /* Espaço generoso em cima(5), sem lados(0) e 2 embaixo */
+    border-top: 3px solid var(--color-gold);
+    /* Uma grande faixa/linha divisória entre a parte preta da Inscrição e parte branca do rodapé, em Dourado. Fica luxuoso. */
+}
+
+.footer-grid {
+    /* Os 3 blocos (Logo/Descrição) + (Links) + (Endereços/Contatos) */
+    display: grid;
+    /* Grid pra enfileirar lado a lado */
+    grid-template-columns: 2fr 1fr 1fr;
+    /* Coluna 1 pega mais espaço porque tem parágrafo (2fr). Links (1fr). Contato (1fr). */
+    gap: 3rem;
+    /* Espaço entra as 3 colunas */
+    margin-bottom: 4rem;
+    /* Empurra pra baixo antes da barrinha final de Copyright */
+}
+
+.footer-logo-wrapper {
+    /* Envolve e segura a logo no rodapé */
+    margin-bottom: 1.5rem;
+    /* Margem em baixo da logo, antes do texto */
+    display: inline-block;
+    /* Fica do tamanho exato da logo pra respeitar margens */
+}
+
+.footer-logo {
+    /* A logo propriamente dita no Footer */
+    height: 85px;
+    /* Altura considerável pra ficar bem legível */
+    width: auto;
+    /* Mantém proporção */
+    max-width: 100%;
+    /* Evita que ela vaze do limite móvel se a tela encolher muito */
+    object-fit: contain;
+    /* Não amassa a imagem */
+    display: block;
+    /* Comporta-se como um bloco sólido para ser calculada corretamente */
     transition: transform 0.3s ease;
+    /* Anima o hover (crescimento da logo) */
+    /* Nota: Removido bordas redondas, fundos e box-shadow exagerados porque no fundo branco da tela a logo já flui limpa sozinha */
 }
 
 .footer-logo:hover {
-    transform: scale(1.05);
+    /* Hover da logo inferior */
+    transform: scale(1.03);
+    /* Ela dá um 'zoom' mínimo de 3% ao sobrevoar, dando status de clique. */
 }
 
 .footer-description {
-    color: var(--color-text-muted);
+    /* O parágrafo "Elevando o padrão dos eventos esportivos" */
+    color: #555555;
+    /* Texto cinza bem escuro pra ler fácil no fundo branco */
     font-size: 0.95rem;
+    /* Tamanho de letra bom pra parágrafos secundários */
     line-height: 1.6;
+    /* Altura de linha legível */
     max-width: 380px;
+    /* Não deixa o texto espichar eternamente para a direita e sim quebrar a linha */
 }
 
 .footer-title {
+    /* Os nomes "NAVEGAÇÃO" e "CONTATO" */
     font-family: var(--font-heading);
-    color: var(--color-white);
+    /* Fonte Título */
+    color: #000000;
+    /* Preto absoluto pra quebrar em destaque e formar leitura visual clara */
     margin-bottom: 1.5rem;
+    /* Margem pra os sub-links em baixo deles */
     text-transform: uppercase;
+    /* CAIXA ALTA */
     font-size: 1.1rem;
+    /* Fonte um pingo maior que link normal */
     position: relative;
+    /* Base de referência pra o sublinhado amarelo via código. */
     padding-bottom: 0.5rem;
+    /* Espaço separando a linha amarela virtual da letra preta em si */
 }
 
 .footer-title::after {
+    /* É Aquele risquinho dourado charmoso embaixo de cada Título na coluna do Footer */
     content: '';
+    /* Limpo, é só desenho visual */
     position: absolute;
+    /* Referente à caixa do H4 acima */
     bottom: 0;
+    /* Coladinho na base do H4 */
     left: 0;
+    /* Lado esquerdo */
     width: 40px;
+    /* Comprimento curto, apenas 40 pixels pra destacar com charme em vez de cortar toda a coluna */
     height: 2px;
+    /* Grosso o suficiente (2px) pra ser visto */
     background-color: var(--color-gold);
+    /* Dourado */
 }
 
 .footer-link {
+    /* Cada link individual, ex "A Empresa" no Footer */
     display: block;
-    color: var(--color-text-muted);
+    /* Força que fique um embaixo do outro, quebrando as linhas. */
+    color: #444444;
+    /* Cinza grafite, ligeiramente mais escuro que a descrição para gerar hierarquia na vista. */
     margin-bottom: 1rem;
+    /* Espaçamento de 16px pra não rolar "dedos gordos" errando click no celular. */
     font-size: 0.95rem;
+    /* Leitura ok */
+    font-weight: 500;
+    /* Fonte mais gordinha/encorpada do que o padrão mas não muito */
     transition: var(--transition);
+    /* Efeitos gerais pra suavizar */
 }
 
 .footer-link:hover {
+    /* Hover nos links do Footer */
     color: var(--color-gold);
+    /* Ficou na cor Ouro/Amarela. */
     transform: translateX(5px);
+    /* Eixo X -> empurra de leve pra "DIREITA" com 5 pixels na hora do foco, indicando 'interação' moderna. */
 }
 
 .footer-bottom {
+    /* Aquele filete final que fica no bumbum do site © Copyright... */
     text-align: center;
+    /* Letras no meio certinho */
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: #666;
+    /* Margem interna (respiro pra cima) distante do resto dos menus superiores. */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    /* Cria uma linha divisória preta extremamente clara (10% de força visual) separando os créditos. */
+    color: #777777;
+    /* Texto cinza ameno */
     font-size: 0.85rem;
+    /* Menor do que todo site, como manda etiqueta web (rodapés burocráticos/jurídicos) */
 }
 
-/* RESPONSIVIDADE */
+/* RESPONSIVIDADE (A magia que ajeita o layout para quebrar e caber bonito em Tablets e Smartphones) */
 @media (max-width: 992px) {
-    .nav-desktop, 
+    /* Tudo que estiver aqui VAI DESTRUIR AS REGRAS de cima e reescrever se a tela for "Tablet pra Baixo" (até 992px de largura). */
+
+    .nav-desktop,
     .nav-btn {
+        /* Os links espalhados lado-a-lado (Inicio, Sobre...) e o Botão "Acessar" perdem a serventia em tela pequena e desconfigurariam o header. */
         display: none;
+        /* Some e os Esconde da tela. */
     }
 
     .mobile-menu-btn {
+        /* Mas aquele "Botão Sanduíche de Três Linhas (Hamburguer) que estava invisível (display none) antes..." */
         display: block;
+        /* Agora Volta da Morte e Aparece com esse display block. E só ele servirá ao celular para abrir. */
     }
 
     .about-container {
         grid-template-columns: 1fr;
-    }
-    
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .brand-col {
-        grid-column: 1 / -1;
-        text-align: center;
-    }
-    
-    .footer-logo-wrapper {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .footer-description {
-        margin: 0 auto;
+        /* Quebra aquela coluna dupla da "Nossa História (Texto da esq vs Caixa da Dir)" e joga UM ABAIXO DO OUTRO. */
     }
 
-    /* Ajuste para Tablet no Formulário de Atletas */
+    .footer-grid {
+        /* Tira o footer que tinha 3 colunas e transforma em... */
+        grid-template-columns: 1fr 1fr;
+        /* 2 Colunas apenas. (Assim Links + Contatos ainda cabem lado a lado no iPad) */
+    }
+
+    .brand-col {
+        /* No footer, a coluna gigante com a logo... */
+        grid-column: 1 / -1;
+        /* É orientada a ignorar a ordem e ocupar as 2 colunas, ou seja a linha INTEIRA de cima. */
+        text-align: center;
+        /* Alinhando os créditos dessa caixa ao meio do grid. */
+    }
+
+    .footer-logo-wrapper {
+        /* Centraliza o invólucro do logo retangular no tablet. */
+        display: flex;
+        /* Flexbox */
+        justify-content: center;
+        /* Força ao meio horizontal. */
+    }
+
+    .footer-description {
+        /* O parágrafo descritivo abaixo da logo. */
+        margin: 0 auto;
+        /* Ajuda a ir magicamente para o eixo central ao lado de cima(0px) mantendo centro(auto) esq/dir */
+    }
+
+    /* Ajuste para Tablet no Formulário de Atletas, já que a lista de inputs ali do "+Adicionar" ia se expremer e estourar feio nas laterais */
     .athlete-row {
         grid-template-columns: 1fr 1fr;
+        /* Invés das 4 caixinhas ficarem alinhadas no horizonte, divide elas em 2 linhas e 2 colunas. (Caiu num formato quadrático mais aceitável pro Tablet) */
         gap: 1rem;
+        /* Mantém 1 vão igual. */
     }
-    
+
     .athlete-row .form-group:first-child {
+        /* Pega expecificamente o Campo "Nome Completo" dentro da lista do Adicionar */
         grid-column: 1 / -1;
+        /* Força que esse "NOME DO ATLETA" roube a linha toda do Grid, deitando Data+Doc na linha baixo. O visual melhora absurdo. */
     }
 }
 
+/* AJUSTE PARA CELULARES NA SEÇÃO RESPONSIVIDADE (@media max-width: 768px) */
 @media (max-width: 768px) {
-    .header {
-        height: 80px;
+    /* TELA ESTRITAMENTE MOBILE / SMARTPHONES E CELULARES VERTICAIS (até 768 pixels). Reescreve denovo a responsividade acima. */
+    
+    .hero-logo {
+        height: 75px;
+        /* Reduz a logo para não ocupar a tela toda no celular */
+        padding: 8px 25px;
     }
+
+    .header {
+        /* Cabeçalho topo base */
+        height: 80px;
+        /* Reduz ligeiramente a faixa branca do topo perdendo 10px em altura, sobra espaço útil pra scrollar a loja no celular. */
+    }
+
     .header.scrolled {
+        /* Reduz o cabeçalho já no modo diminuído (scrolado). */
         height: 70px;
+        /* Esmaga pra 70px. */
     }
 
     .nav-mobile {
+        /* Aquela aba cega com links que desce quando toca em sanduíche. */
         top: 80px;
+        /* Começa a descer e aparecer colada nos exatos 80px do rodapé da Header no celular (sendo contígua perfeita ao menu de top) */
     }
 
     .img-logo {
+        /* Logo da cabeceira */
         height: 45px;
-        padding: 5px 15px;
+        /* Comprime a foto, impedindo de rasgar topo/base da borda pequena de header de 80px. */
     }
+
     .header.scrolled .img-logo {
+        /* Quando rolar no cel. */
         height: 40px;
+        /* Diminui pra mini 40 pixels pra fluir harmonioso e sumir. */
     }
 
     .hero {
+        /* Aquela tela grande e capa da bola */
         padding-top: 80px;
+        /* Baixa ligeiro conteúdo textual da capa pro vão desobstruído da Header de 80px na vertical mobile */
         text-align: center;
+        /* Pega aquele MEGA TÍTULO, SUBTÍTULO, que estavam 'alinhados à ESQUERDA' pra quem visualiza no computador... e quebra tudo jogando para alinhar o meio do tela do iPhone perfeitamente visual e simétrico. */
     }
-    
+
     .hero-subtitle {
+        /* Subtítulo da Capa */
         margin: 0 auto 2.5rem;
+        /* Margens CIMA(0) LADOS(Auto-Meio) BAIXO(2.5rem longe dos botões) */
     }
 
     .hero-buttons {
+        /* A caixa que segurava botões Inscrição+Agenda */
         flex-direction: column;
+        /* Como eles estavam "linha-a-linha" ombro/ombro e a tela minúscula de iPhone não vai caber os 2... Flex Direction quebra com "Column", forçando botão A empurrar Botão B pra baixo. Empilhados de cima e em baixo. */
         width: 100%;
+        /* Toma a telona inteira pra si */
         max-width: 300px;
+        /* Mas freia pra ficar máximo 300px bonitão gordo. */
         margin: 0 auto;
+        /* Joga eles ao centro total do eixo vertical móvel. */
     }
-    
+
     .form-row {
+        /* Aquela fila de Cadastro que abrigava "Nome Técnico / ZAP Lado a Lado" */
         grid-template-columns: 1fr;
+        /* Quebrou-se, jogando tudo "1 abaixinho do Outro" (1fr único no Grid). */
         gap: 0;
+        /* Remove Vão lateral pq já não há. */
     }
-    
+
     .athlete-row {
+        /* Adicionar Atletas Móvel - Extremo desespero visual em tela miúda (ex, iPhone 5/SE/Mini) */
         grid-template-columns: 1fr;
+        /* Forçado sumáriamente à criar Coluna Única (Um Input debaixo de outro) quebrando todos em fila infinita. */
         padding: 1.2rem;
+        /* Aumenta gordinho a casca e margem interna (Pra dedo acertar e ter clareza de separar as caixas dos inputs entre "Jogador A x Jogador B" que visualmente pareciam 1 só) */
     }
-    
+
     .remove-btn {
+        /* Botão X de Fechar o Jogador. */
         width: 100%;
+        /* Toma todo eixo horizontal e enche linha inferior */
         padding: 0.8rem;
+        /* Esticadão */
         margin-top: 0.5rem;
+        /* Espaçado da caixa do ID Documento acima. E virou botão quadrado no fundo em celular. */
     }
-    
+
     .footer-grid {
+        /* Finalmente no rodapé geral do telefone */
         grid-template-columns: 1fr;
+        /* Caiu o último pilar e aquelas 2 filas que restaram (Links / Contato lado a lado) quebraram para virar tudo CIMA / BAIXO em fila indiana. */
         gap: 2.5rem;
+        /* Fenda maior pra não misturar blocos visualmente ao escrolar até o final da tela com o dedão. */
         text-align: center;
+        /* Bônus extra: Centraliza todo conteúdo semântico, texto link contato telefone para meio simétrico do rodapé móvel, gerando design mais "Mobile First" ou de App moderno e harmônico */
     }
 
     .footer-title::after {
+        /* A linhazinha amarelo ouro pequena (40px) da Coluna "TITULO DE RODAPÉ" */
         left: 50%;
+        /* Joga seu eixo 50% pra meio do espaço. */
         transform: translateX(-50%);
+        /* Força um reajuste matemático com Traslate-X(-50) de subtração, causando a perfeição visual onde a linha dourada vai caçar EXATAMENTE o ponto médio do texto do titulo gerando harmonia ao centro da palavra ex( NAVEGAR / CONATATO )  */
     }
 
     .footer-link:hover {
+        /* Hover nos sub-links no cel (apenas anima de dedo roçando no touch) */
         transform: translateY(-2px);
+        /* Substituiu aquele hover que empurrava "A DIREITA" pra agora empurrar "PARA CIMA(2px)". Uma vez que tudo tá centralizado pro meio agora, no celular o empurrar pro lado direito iria "tirar do eixo estético da tela" gerando desarmonia no momento que você encostar seu dedo pra abrir um link ali */
     }
-    
+
     .form-container {
+        /* A CAIXA BRUTA PRINCIPAL onde tem Cadastro. */
         padding: 2rem 1.5rem;
+        /* Seca de forma severa os Paddings internos da caixa que eram gigantescos de 3.5Rem pro PC... pra virarem minúsculos de 2 e 1.5. Por que? Porque a tela do telefone e mísera e pequena. Gastar margem preta pra um formulário que só quer espaço pra digitar seria desperdício letal e form ficaria fino demais e horrível pra o dedo achar as caixas */
     }
 }
