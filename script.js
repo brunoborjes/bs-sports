@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeLine1 && typeLine2 && typeBall) {
     const text1 = "Grandes eventos.";
     const text2 = "Grandes experiências.";
-    const typeSpeed = 10; // ms por letra (menor = mais rápido)
+    const typeSpeed = 100; // ms por letra (menor = mais rápido)
     const ballSvg = typeBall.querySelector("svg");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
