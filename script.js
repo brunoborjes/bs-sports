@@ -33,208 +33,105 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- SISTEMA DE ABAS (EVENTOS) ---
-  const tabBtns = document.querySelectorAll(".tab-btn");
-  const tabContents = document.querySelectorAll(".tab-content");
-
-  tabBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      tabBtns.forEach((b) => b.classList.remove("active"));
-      tabContents.forEach((c) => c.classList.remove("active"));
-
-      btn.classList.add("active");
-      const targetId = btn.getAttribute("data-target");
-      document.getElementById(targetId).classList.add("active");
-    });
-  });
-
-  // --- FORMULÁRIO DINÂMICO (ATLETAS) ---
-  const athletesList = document.getElementById("athletesList");
-  const addAthleteBtn = document.getElementById("addAthleteBtn");
-  let athleteCount = 0;
-
-  function addAthleteRow() {
-    athleteCount++;
-    const row = document.createElement("div");
-    row.className = "athlete-row";
-    row.id = `athlete-${athleteCount}`;
-    row.style.animation = "fadeIn 0.3s ease";
-
-    row.innerHTML = `
-            <div class="form-group">
-                <input type="text" class="athlete-name" placeholder="Nome Completo do Atleta" required>
-            </div>
-            <div class="form-group">
-                <input type="date" class="athlete-birth" placeholder="Data Nasc." required>
-            </div>
-            <div class="form-group">
-                <input type="text" class="athlete-doc" placeholder="Nº Camisa / RG">
-            </div>
-            <button type="button" class="remove-btn" aria-label="Remover atleta" onclick="removeAthlete(${athleteCount})">✕</button>
-        `;
-
-    athletesList.appendChild(row);
-  }
-
-  addAthleteRow();
-
-  addAthleteBtn.addEventListener("click", addAthleteRow);
-
-  window.removeAthlete = function (id) {
-    const row = document.getElementById(`athlete-${id}`);
-    if (row) {
-      row.style.opacity = "0";
-      setTimeout(() => row.remove(), 300);
-    }
+  // --- SCROLL REVEAL & ANIMAÇÃO DOS NÚMEROS (NOVO) ---
+  const observerOptions = {
+    threshold: 0.1, // Anima quando 10% do elemento estiver visível
+    rootMargin: "0px 0px -50px 0px"
   };
-  // --- INTEGRAÇÃO COM PLANILHA (GOOGLE SHEETS - INSCRIÇÕES) ---
-  const GOOGLE_SHEETS_WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbylhVITWiOUFO7X-zTX35h-0nW8-ga12eho6XuhGE82bLes0JwrL38a7pmUNmtsab2xnA/exec";
 
-  const form = document.getElementById("registrationForm");
-  const formMessage = document.getElementById("formMessage");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Adiciona a classe que ativa as transições CSS
+        entry.target.classList.add('reveal-active');
+        
+        // Verifica se é o container de estatística para rodar a animação dos números
+        if (entry.target.classList.contains('stat-item') && !entry.target.dataset.animated) {
+          animateNumbers(entry.target);
+          entry.target.dataset.animated = true; // Impede que anime de novo ao subir e descer a tela
+        }
+        
+        observer.unobserve(entry.target); // Para de observar após animar
+      }
+    });
+  }, observerOptions);
 
-  function collectAthletes() {
-    const rows = athletesList.querySelectorAll(".athlete-row");
-    return Array.from(rows).map((row) => ({
-      nome: row.querySelector(".athlete-name").value,
-      nascimento: row.querySelector(".athlete-birth").value,
-      documento: row.querySelector(".athlete-doc").value,
-    }));
-  }
-
-  function showMessage(text, color) {
-    formMessage.innerHTML = `<span style="color: ${color}; display: block; margin-top: 1rem; text-align: center; font-weight: 500;">${text}</span>`;
-    setTimeout(() => {
-      formMessage.innerHTML = "";
-    }, 5000);
-  }
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerText;
-    submitBtn.innerText = "Enviando, aguarde...";
-    submitBtn.disabled = true;
-
-    // Formata os atletas em um texto organizado
-    const atletasArr = collectAthletes();
-    const atletasFormatados = atletasArr
-      .map(
-        (a) => `Nome: ${a.nome} | Nasc: ${a.nascimento} | Doc: ${a.documento}`,
-      )
-      .join(" / ");
-
-    const formData = {
-      equipe: document.getElementById("teamName").value,
-      modalidade: document.getElementById("sport").value,
-      categoria: document.getElementById("category").value,
-      responsavel: document.getElementById("manager").value,
-      telefone: document.getElementById("phone").value,
-      email: document.getElementById("email").value,
-      observacoes: document.getElementById("notes").value,
-      atletas: atletasFormatados,
-    };
-
-    try {
-      // Envia os dados usando POST e no-cors para evitar bloqueio do navegador
-      await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      form.reset();
-      athletesList.innerHTML = "";
-      athleteCount = 0;
-      addAthleteRow();
-
-      showMessage(
-        "Inscrição enviada com sucesso! Entraremos em contato.",
-        "#4CAF50",
-      );
-    } catch (err) {
-      console.error("Erro ao enviar inscrição:", err);
-      showMessage(
-        "Não foi possível enviar sua inscrição. Tente novamente.",
-        "#ff4444",
-      );
-    } finally {
-      submitBtn.innerText = originalText;
-      submitBtn.disabled = false;
-    }
+  // Seleciona todos os elementos com a classe reveal
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
   });
 
-  // --- INTEGRAÇÃO COM CMS (GOOGLE SHEETS PARA EVENTOS) ---
-  const API_EVENTOS_URL =
-    "https://script.google.com/macros/s/AKfycbxsOXrX-4JW_MhpUOgwU9m7xaHBbYtJd-3zDja75sDPctAjWq7tBBM-dQgerDLoLLpGdQ/exec";
+  // Ativa instantaneamente as animações da seção Hero no load
+  setTimeout(() => {
+    document.querySelectorAll('.reveal-hero').forEach(el => {
+      el.classList.add('reveal-active');
+    });
+  }, 100);
 
-  async function carregarProximosEventos() {
-    const containerProximos = document.getElementById("proximos-grid");
+  // Função matemática para rodar a contagem fluida
+  function animateNumbers(statItem) {
+    const numElement = statItem.querySelector('.stat-number');
+    const originalText = numElement.innerText; // Ex: "5000+"
+    const targetNum = parseInt(originalText.replace(/\D/g, '')); // Extrai apenas 5000
+    const suffix = originalText.replace(/[0-9]/g, ''); // Extrai apenas "+"
+    
+    let start = 0;
+    const duration = 2000; // 2 segundos de animação
+    const increment = targetNum / (duration / 16); // 60 frames por segundo
 
-    if (!containerProximos) return;
+    const updateNumber = () => {
+      start += increment;
+      if (start < targetNum) {
+        // Usa formatação local para adicionar pontos (5.000)
+        numElement.innerText = Math.ceil(start).toLocaleString('pt-BR') + suffix;
+        requestAnimationFrame(updateNumber);
+      } else {
+        // Garante que termina exatamente com o valor original formatado
+        numElement.innerText = targetNum.toLocaleString('pt-BR') + suffix; 
+      }
+    };
+    updateNumber();
+  }
 
-    containerProximos.innerHTML =
-      '<p style="text-align:center; width:100%; color:var(--color-gold);">Carregando próximos eventos...</p>';
+  // --- NOVO: EFEITO DE DIGITAÇÃO COM BOLA NO HERO ---
+  const typeLine1 = document.getElementById("type-1");
+  const typeLine2 = document.getElementById("type-2");
+  const typeBall = document.getElementById("type-ball");
 
-    try {
-      const response = await fetch(API_EVENTOS_URL);
-      const eventos = await response.json();
+  if (typeLine1 && typeLine2 && typeBall) {
+    const text1 = "Grandes eventos.";
+    const text2 = "Grandes experiências.";
+    const typeSpeed = 10; // ms por letra (menor = mais rápido)
+    const ballSvg = typeBall.querySelector("svg");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    let ballAngle = 0;
 
-      containerProximos.innerHTML = "";
+    async function typeText(el, text) {
+      el.after(typeBall); // a bola vai para o fim da linha atual
+      for (const ch of text) {
+        el.textContent += ch;
+        ballAngle += 40; // a bola gira a cada letra
+        ballSvg.style.transform = "rotate(" + ballAngle + "deg)";
+        await sleep(typeSpeed);
+      }
+    }
 
-      const eventosAtivos = eventos.filter((e) => {
-        if (!e.Status) return false;
-        const statusNormalizado = e.Status.toLowerCase().trim();
-        return (
-          statusNormalizado === "em breve" ||
-          statusNormalizado === "inscrições abertas" ||
-          statusNormalizado === "em andamento"
-        );
-      });
-
-      if (eventosAtivos.length === 0) {
-        containerProximos.innerHTML =
-          '<p style="text-align:center; width:100%; color:#888;">Nenhum evento programado no momento.</p>';
+    async function runTyping() {
+      if (reduceMotion) {
+        // sem animação para quem prefere movimento reduzido
+        typeLine1.textContent = text1;
+        typeLine2.textContent = text2;
+        typeLine2.after(typeBall);
         return;
       }
-
-      eventosAtivos.forEach((evento) => {
-        const statusLower = evento.Status
-          ? evento.Status.toLowerCase().trim()
-          : "";
-        const isInscricoes = statusLower === "inscrições abertas";
-        const badgeClass = isInscricoes ? "badge-outline" : "badge-gray";
-
-        const cardHTML = `
-                    <div class="event-card">
-                        <img class="event-img" src="${evento.Imagem}" alt="${evento.Titulo}" loading="lazy">
-                        <div class="event-info">
-                            <span class="event-badge ${badgeClass}">${evento.Status}</span>
-                            <h3 class="event-title">${evento.Titulo}</h3>
-                            <p class="event-detail">Modalidade: ${evento.Modalidade}</p>
-                            <p class="event-detail">Data: ${evento.Data}</p>
-                            <p class="event-detail">Local: ${evento.Local}</p>
-                            ${
-                              isInscricoes
-                                ? '<a href="#inscricao" class="btn btn-primary" style="margin-top: 1rem; width: 100%; text-align:center; display: block;">Inscrever-se</a>'
-                                : '<button class="btn btn-outline" style="margin-top: 1rem; width: 100%;">Ver Detalhes</button>'
-                            }
-                        </div>
-                    </div>
-                `;
-        containerProximos.innerHTML += cardHTML;
-      });
-    } catch (error) {
-      console.error("Erro ao buscar eventos:", error);
-      containerProximos.innerHTML =
-        '<p style="text-align:center; width:100%; color:#ff4444;">Erro ao carregar os eventos da planilha.</p>';
+      await sleep(500);
+      await typeText(typeLine1, text1);
+      await sleep(250);
+      await typeText(typeLine2, text2);
+      typeBall.classList.add("is-done"); // bola começa a quicar
     }
-  }
 
-  carregarProximosEventos();
+    runTyping();
+  }
 });
