@@ -89,7 +89,6 @@ ul {
 }
 
 /* ===== INSTAGRAM ===== */
-/* NOVO: subtítulo da seção */
 .instagram-subtitle {
     max-width: 600px;
     margin: 0 auto 2.5rem;
@@ -98,7 +97,7 @@ ul {
 
 .instagram-embed {
     width: 100%;
-    max-width: 900px;          /* largura máxima: aumente ou diminua à vontade */
+    max-width: 900px;         
     margin: 0 auto;
     container-type: inline-size;
 }
@@ -106,7 +105,6 @@ ul {
 .instagram-embed iframe {
     display: block;
     width: 100%;
-    /* cabeçalho (~125px) + 2 linhas de posts (cada uma = 1/3 da largura) */
     height: calc(66.67cqw + 125px);
     border: 0;
     border-radius: 12px;
@@ -165,27 +163,31 @@ ul {
     color: #000; 
 }
 
-/* HEADER & NAVEGAÇÃO - TEMA CLARO */
+/* =========================================
+   HEADER & NAVEGAÇÃO - TEMA CLARO E VIDRO
+   ========================================= */
 .header { 
     position: fixed; 
     top: 0; 
     left: 0; 
     width: 100%; 
     height: 90px; 
-    background-color: rgba(255, 255, 255, 0.95); 
-    backdrop-filter: blur(16px); 
-    -webkit-backdrop-filter: blur(16px); 
+    background-color: rgba(255, 255, 255, 1); 
     z-index: 1000; 
     border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
     display: flex; 
     align-items: center; 
-    transition: var(--transition); 
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
+/* EFEITO GLASSMORPHISM (VIDRO) QUANDO SCROLLAR */
 .header.scrolled { 
-    height: 75px; 
-    background-color: rgba(255, 255, 255, 1); 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    height: 70px; 
+    background-color: rgba(255, 255, 255, 0.35); 
+    backdrop-filter: blur(16px) saturate(180%); 
+    -webkit-backdrop-filter: blur(16px) saturate(180%); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15); 
 }
 
 .header-container { 
@@ -216,11 +218,17 @@ ul {
 }
 
 .header.scrolled .img-logo { 
-    height: 50px; 
+    height: 48px; 
 }
 
 .img-logo:hover { 
     transform: scale(1.05); 
+}
+
+/* Sombra leve nos textos/botões caso o fundo da hero dificulte a leitura na transparência */
+.header.scrolled .nav-desktop a,
+.header.scrolled .mobile-menu-btn {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
 /* NAV DESKTOP */
@@ -238,7 +246,7 @@ ul {
     letter-spacing: 0.05em; 
     position: relative; 
     padding: 0.5rem 0; 
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease, text-shadow 0.3s ease; 
 }
 
 .nav-desktop a::after { 
@@ -280,7 +288,9 @@ ul {
     color: var(--color-gold); 
 }
 
-/* MENU MOBILE DROPDOWN */
+/* =========================================
+   MENU MOBILE DROPDOWN 
+   ========================================= */
 .nav-mobile { 
     display: flex; 
     flex-direction: column; 
@@ -288,8 +298,7 @@ ul {
     top: 90px; 
     left: 0; 
     width: 100%; 
-    background-color: rgba(255, 255, 255, 0.98); 
-    backdrop-filter: blur(10px); 
+    background-color: rgba(255, 255, 255, 1); 
     border-bottom: 3px solid var(--color-gold); 
     max-height: 0; 
     overflow: hidden; 
@@ -299,7 +308,11 @@ ul {
 }
 
 .header.scrolled .nav-mobile { 
-    top: 75px; 
+    top: 70px; 
+    background-color: rgba(255, 255, 255, 0.35); 
+    backdrop-filter: blur(16px) saturate(180%); 
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); 
 }
 
 .nav-mobile.active { 
@@ -737,17 +750,19 @@ ul {
         height: 80px; 
     }
     .header.scrolled { 
-        height: 70px; 
+        height: 65px; 
     }
 
     .nav-mobile { 
         top: 80px; 
     }
+    .header.scrolled .nav-mobile { 
+        top: 65px; 
+    }
 
     .img-logo { 
-        height: 45px; 
-    }
-    
+        height: 48px; 
+    } 
     .header.scrolled .img-logo { 
         height: 40px; 
     }
@@ -755,7 +770,7 @@ ul {
     .hero { 
         padding-top: 80px; 
         text-align: center; 
-    }
+    } 
     
     .hero-subtitle { 
         margin: 0 auto 2.5rem; 
@@ -766,7 +781,7 @@ ul {
         width: 100%; 
         max-width: 300px; 
         margin: 0 auto; 
-    }
+    } 
     
     .footer-grid { 
         grid-template-columns: 1fr; 
@@ -781,7 +796,7 @@ ul {
 
     .footer-link:hover { 
         transform: translateY(-4px); 
-    }
+    } 
     
     .social-links { 
         justify-content: center; 
