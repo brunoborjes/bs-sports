@@ -1,7 +1,6 @@
 // Script Principal - BS SPORTS
 
 document.addEventListener("DOMContentLoaded", () => {
-  
   // ===============================================
   // EFEITO DO CABEÇALHO (Sombra ao rolar)
   // ===============================================
@@ -43,25 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================================
   const observerOptions = {
     threshold: 0.15,
-    rootMargin: "0px 0px -40px 0px"
+    rootMargin: "0px 0px -40px 0px",
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-active');
+        entry.target.classList.add("reveal-active");
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll('.reveal').forEach(el => {
+  document.querySelectorAll(".reveal").forEach((el) => {
     observer.observe(el);
   });
 
   setTimeout(() => {
-    document.querySelectorAll('.reveal-hero').forEach(el => {
-      el.classList.add('reveal-active');
+    document.querySelectorAll(".reveal-hero").forEach((el) => {
+      el.classList.add("reveal-active");
     });
   }, 100);
 
@@ -77,8 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const text2 = "Grandes experiências.";
     const typeSpeed = 90;
     const ballSvg = typeBall.querySelector("svg");
-    
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     let ballAngle = 0;
 
@@ -99,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         typeLine2.after(typeBall);
         return;
       }
-      
+
       await sleep(400);
       await typeText(typeLine1, text1);
       await sleep(200);
