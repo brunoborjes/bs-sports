@@ -15,26 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuOverlay = document.getElementById("menu-overlay");
   const sideLinks = document.querySelectorAll(".side-link");
 
-  const toggleMenu = () => {
-    mobileMenuBtn.classList.toggle("open");
-    sideMenu.classList.toggle("active");
-    menuOverlay.classList.toggle("active");
-    // Trava o fundo da tela para não rolar enquanto o menu lateral estiver aberto
-    document.body.style.overflow = sideMenu.classList.contains("active") ? "hidden" : "";
-  };
+  if (mobileMenuBtn && sideMenu && menuOverlay) {
+    const toggleMenu = () => {
+      mobileMenuBtn.classList.toggle("open");
+      sideMenu.classList.toggle("active");
+      menuOverlay.classList.toggle("active");
+      document.body.style.overflow = sideMenu.classList.contains("active") ? "hidden" : "";
+    };
 
-  mobileMenuBtn.addEventListener("click", toggleMenu);
-  menuOverlay.addEventListener("click", toggleMenu); // Fecha o menu ao clicar na parte escura
-  
-  // Fecha o menu ao clicar em qualquer link da gaveta lateral
-  sideLinks.forEach(link => {
-    link.addEventListener("click", toggleMenu);
-  });
+    mobileMenuBtn.addEventListener("click", toggleMenu);
+    menuOverlay.addEventListener("click", toggleMenu);
+    
+    sideLinks.forEach(link => {
+      link.addEventListener("click", toggleMenu);
+    });
+  }
 
   // SCROLL REVEAL (Intersection Observer)
   const revealElements = document.querySelectorAll('.reveal');
   const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -43,13 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, observerOptions);
-
   revealElements.forEach(el => revealObserver.observe(el));
-
-  // Aciona logo de cara os elementos do Hero para dar o efeito de entrada
-  setTimeout(() => {
-    document.querySelectorAll('.reveal-hero').forEach(el => el.classList.add('reveal-active'));
-  }, 100);
+  setTimeout(() => { document.querySelectorAll('.reveal-hero').forEach(el => el.classList.add('reveal-active')); }, 100);
 
   // EFEITO DE DIGITAÇÃO E BOLA
   const typeLine1 = document.getElementById("type-1");
@@ -61,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const text2 = "Grandes experiências.";
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-    
     let ballAngle = 0;
     const ballSvg = typeBall.querySelector("svg");
 
@@ -71,24 +64,17 @@ document.addEventListener("DOMContentLoaded", () => {
         el.textContent += ch;
         ballAngle += 45;
         ballSvg.style.transform = `rotate(${ballAngle}deg)`;
-        await sleep(70); // Velocidade da digitação
+        await sleep(70);
       }
     }
 
     async function runTyping() {
       if (reduceMotion) {
-        typeLine1.textContent = text1;
-        typeLine2.textContent = text2;
-        typeLine2.after(typeBall);
-        return;
+        typeLine1.textContent = text1; typeLine2.textContent = text2; typeLine2.after(typeBall); return;
       }
-      await sleep(600);
-      await typeText(typeLine1, text1);
-      await sleep(300);
-      await typeText(typeLine2, text2);
-      typeBall.classList.add("is-done"); // Faz a bolinha "quicar" no final
+      await sleep(600); await typeText(typeLine1, text1); await sleep(300); await typeText(typeLine2, text2);
+      typeBall.classList.add("is-done");
     }
-
     runTyping();
   }
 
@@ -99,33 +85,28 @@ document.addEventListener("DOMContentLoaded", () => {
     futebol: {
       title: "FUTEBOL",
       images: [
-        "./images/ft01.jfif",
-        "./images/ft02.jfif",
-        "./images/ft03.jfif",
-        "./images/ft04.jfif",
-        "./images/ft05.jfif",
-        "./images/ft06.jfif",
-        "./images/ft07.jfif",
-        "./images/ft08.jfif",
-        "./images/ft09.jfif",
-        "./images/ft10.jfif",
-        "./images/ft11.jfif",
-        "./images/ft12.jfif",
+        "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1000&auto=format&fit=crop"
       ]
     },
     volei: {
-      title: "BEACH TENNIS",
+      title: "VÔLEI",
       images: [
-        "./images/bt01.jfif",
-        "./images/bt02.jfif",
-        "./images/bt03.jfif",
-        "./images/bt04.jfif",
-        "./images/bt05.jfif",
-        "./images/bt06.jfif",
-        "./images/bt07.jfif",
-        "./images/bt08.jfif"
+        "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1592656094267-764a45160876?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1578269174936-2709b6aeb913?q=80&w=1000&auto=format&fit=crop"
       ]
     },
+    basquete: {
+      title: "BASQUETE",
+      images: [
+        "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000&auto=format&fit=crop"
+      ]
+    }
   };
 
   const galleryModal = document.getElementById("galleryModal");
@@ -157,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
     currentImages = data.images;
     currentModalIndex = 0;
 
-    // Monta os slides da galeria
     modalTrack.innerHTML = data.images.map(src => `
       <div class="modal-gallery-slide">
         <img src="${src}" alt="${data.title}" loading="lazy" />
@@ -166,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateModalSlide(0);
     galleryModal.classList.add("active");
-    document.body.style.overflow = "hidden"; // Desativa scroll da página
+    document.body.style.overflow = "hidden";
   }
 
   function closeGallery() {
@@ -174,7 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
   }
 
-  // Evento de clique nos cards das modalidades
   document.querySelectorAll(".sport-card").forEach(card => {
     card.addEventListener("click", () => {
       const sport = card.getAttribute("data-sport");
@@ -182,16 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  modalCloseBtn.addEventListener("click", closeGallery);
-  modalBackdrop.addEventListener("click", closeGallery);
+  if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeGallery);
+  if (modalBackdrop) modalBackdrop.addEventListener("click", closeGallery);
+  if (modalPrevBtn) modalPrevBtn.addEventListener("click", () => updateModalSlide(currentModalIndex - 1));
+  if (modalNextBtn) modalNextBtn.addEventListener("click", () => updateModalSlide(currentModalIndex + 1));
 
-  modalPrevBtn.addEventListener("click", () => updateModalSlide(currentModalIndex - 1));
-  modalNextBtn.addEventListener("click", () => updateModalSlide(currentModalIndex + 1));
-
-  // Tecla ESC fecha a galeria
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && galleryModal.classList.contains("active")) {
-      closeGallery();
-    }
+    if (e.key === "Escape" && galleryModal && galleryModal.classList.contains("active")) closeGallery();
   });
 });
