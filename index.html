@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <!-- HEADER (Menu Flutuante) -->
+    <!-- HEADER PRINCIPAL -->
     <header class="header" id="header">
       <div class="container header-container">
         <!-- Esquerda: Logo -->
@@ -40,19 +40,18 @@
           </button>
         </div>
       </div>
-      
-      <!-- Fundo escuro para fechar o menu lateral clicando fora -->
-      <div class="menu-overlay" id="menu-overlay"></div>
-      
-      <!-- MENU LATERAL (Gaveta) -->
-      <nav class="side-menu" id="side-menu">
-        <a href="#inicio" class="side-link">Início</a>
-        <a href="#instagram" class="side-link">Fotos</a>
-        <a href="#sobre" class="side-link">A Empresa</a>
-        <a href="#modalidades" class="side-link">Modalidades</a>
-        <a href="https://copafacil.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full mt-4">Acessar Plataforma</a>
-      </nav>
-    </header>
+    </header> <!-- O Header agora fecha AQUI, separando-o do menu lateral -->
+
+    <!-- MENU LATERAL (GAVETA) -->
+    <!-- Como agora está fora do Header, os cliques funcionarão perfeitamente -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <nav class="side-menu" id="side-menu">
+      <a href="#inicio" class="side-link">Início</a>
+      <a href="#instagram" class="side-link">Fotos</a>
+      <a href="#sobre" class="side-link">A Empresa</a>
+      <a href="#modalidades" class="side-link">Modalidades</a>
+      <a href="https://copafacil.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full mt-4">Acessar Plataforma</a>
+    </nav>
 
     <!-- HERO -->
     <section id="inicio" class="hero">
@@ -102,7 +101,7 @@
     <section id="instagram" class="section bg-darker">
       <div class="container">
         <div class="section-header text-center reveal">
-          <h2 class="section-title">Nossa <span class="text-gold">Arena</span></h2>
+          <h2 class="section-title">Nosso <span class="text-gold">Instagram</span></h2>
           <p class="section-subtitle">Bastidores, resultados e os melhores momentos dos nossos eventos no Instagram.</p>
         </div>
         <div class="instagram-embed reveal delay-1">
@@ -119,13 +118,10 @@
       <div class="about-field-bg"></div>
       <div class="about-overlay"></div>
       <div class="container about-container">
-        
         <div class="section-header text-center reveal">
           <h2 class="section-title">Nossa <span class="text-gold">História</span></h2>
         </div>
-
         <div class="story-timeline">
-          
           <div class="story-row reveal delay-1">
             <div class="story-text">
               <h3 class="story-title text-gold">O INÍCIO DA JORNADA</h3>
@@ -135,7 +131,6 @@
               <img src="./images/bs01.jfif" alt="Início da Jornada" loading="lazy" />
             </div>
           </div>
-
           <div class="story-row reverse reveal delay-2">
             <div class="story-text">
               <h3 class="story-title text-gold">COMPROMISSO E EVOLUÇÃO</h3>
@@ -145,7 +140,6 @@
               <img src="./images/bs02.jfif" alt="Compromisso e Evolução" loading="lazy" />
             </div>
           </div>
-
           <div class="story-row reveal delay-3">
             <div class="story-text">
               <h3 class="story-title text-gold">INOVAÇÃO E FUTURO</h3>
@@ -155,7 +149,6 @@
               <img src="./images/bs03.jfif" alt="Inovação e Futuro" loading="lazy" />
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -168,8 +161,9 @@
           <p class="section-subtitle">Estrutura de ponta para os esportes mais competitivos.</p>
         </div>
         <div class="sports-grid">
-          <div class="sport-card reveal delay-1">
-            <img src="./images/bs04.jfif" alt="Futebol" loading="lazy" />
+          <!-- CARD FUTEBOL -->
+          <div class="sport-card reveal delay-1" data-sport="futebol">
+            <img src="./images/bs01.jfif" alt="Futebol" loading="lazy" />
             <div class="sport-content">
               <div class="sport-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 12l3.5-2.5m-3.5 2.5l-3.5-2.5m3.5 2.5v4m3.5-6.5a4 4 0 01-7 0m7 0l2 2.5m-9-2.5l-2 2.5"/></svg>
@@ -178,26 +172,18 @@
             </div>
             <div class="sport-overlay-bg"></div>
           </div>
-          <div class="sport-card reveal delay-2">
-            <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=600&auto=format&fit=crop" alt="Vôlei" loading="lazy" />
+          <!-- CARD Beach Tennis -->
+          <div class="sport-card reveal delay-2" data-sport="volei">
+            <img src="./images/bt05.jfif" alt="Beach Tennis" loading="lazy" />
             <div class="sport-content">
               <div class="sport-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2v20m10-10H2m15.536 7.536L4.464 4.464m15.072 0L4.464 19.536"/></svg>
               </div>
-              <h3>Vôlei</h3>
+              <h3>BEACH TENNIS</h3>
             </div>
             <div class="sport-overlay-bg"></div>
           </div>
-          <div class="sport-card reveal delay-3">
-            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=600&auto=format&fit=crop" alt="Basquete" loading="lazy" />
-            <div class="sport-content">
-              <div class="sport-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M12 2a14.5 14.5 0 010 20M2 12h20m-17.5-6.5c3.5 4.5 11 4.5 15 0M4.5 18.5c3.5-4.5 11-4.5 15 0"/></svg>
-              </div>
-              <h3>Basquete</h3>
-            </div>
-            <div class="sport-overlay-bg"></div>
-          </div>
+        
         </div>
         <div class="text-center mt-5 reveal delay-4">
           <h3 class="font-heading uppercase tracking-wide text-gold">E muito mais</h3>
@@ -245,6 +231,28 @@
         </div>
       </div>
     </footer>
+    
+    <!-- MODAL DE GALERIA DE FOTOS (Abre por cima do site) -->
+    <div class="gallery-modal" id="galleryModal">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div class="modal-card">
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Fechar galeria">&times;</button>
+        <div class="modal-header">
+          <h3 id="modalTitle" class="modal-title text-gold">FUTEBOL</h3>
+          <p class="modal-subtitle">Galeria de fotos oficiais dos eventos</p>
+        </div>
+        <div class="modal-body">
+          <div class="modal-gallery-wrapper">
+            <div class="modal-gallery-track" id="modalGalleryTrack">
+              <!-- Fotos inseridas dinamicamente via JS -->
+            </div>
+            <button class="modal-nav-btn modal-prev" id="modalPrevBtn">&#10094;</button>
+            <button class="modal-nav-btn modal-next" id="modalNextBtn">&#10095;</button>
+          </div>
+          <div class="modal-counter" id="modalCounter">1 / 4</div>
+        </div>
+      </div>
+    </div>
     
     <script src="script.js"></script>
   </body>

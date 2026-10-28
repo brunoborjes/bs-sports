@@ -91,4 +91,107 @@ document.addEventListener("DOMContentLoaded", () => {
 
     runTyping();
   }
+
+  // ===============================================
+  // GALERIA MODAL DAS MODALIDADES (CARD SOBREPOSTO)
+  // ===============================================
+  const sportsData = {
+    futebol: {
+      title: "FUTEBOL",
+      images: [
+        "./images/ft01.jfif",
+        "./images/ft02.jfif",
+        "./images/ft03.jfif",
+        "./images/ft04.jfif",
+        "./images/ft05.jfif",
+        "./images/ft06.jfif",
+        "./images/ft07.jfif",
+        "./images/ft08.jfif",
+        "./images/ft09.jfif",
+        "./images/ft10.jfif",
+        "./images/ft11.jfif",
+        "./images/ft12.jfif",
+      ]
+    },
+    volei: {
+      title: "BEACH TENNIS",
+      images: [
+        "./images/bt01.jfif",
+        "./images/bt02.jfif",
+        "./images/bt03.jfif",
+        "./images/bt04.jfif",
+        "./images/bt05.jfif",
+        "./images/bt06.jfif",
+        "./images/bt07.jfif",
+        "./images/bt08.jfif"
+      ]
+    },
+  };
+
+  const galleryModal = document.getElementById("galleryModal");
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalTrack = document.getElementById("modalGalleryTrack");
+  const modalPrevBtn = document.getElementById("modalPrevBtn");
+  const modalNextBtn = document.getElementById("modalNextBtn");
+  const modalCounter = document.getElementById("modalCounter");
+
+  let currentImages = [];
+  let currentModalIndex = 0;
+
+  function updateModalSlide(index) {
+    if (index < 0) currentModalIndex = currentImages.length - 1;
+    else if (index >= currentImages.length) currentModalIndex = 0;
+    else currentModalIndex = index;
+
+    modalTrack.style.transform = `translateX(-${currentModalIndex * 100}%)`;
+    modalCounter.textContent = `${currentModalIndex + 1} / ${currentImages.length}`;
+  }
+
+  function openGallery(sportKey) {
+    const data = sportsData[sportKey];
+    if (!data) return;
+
+    modalTitle.textContent = data.title;
+    currentImages = data.images;
+    currentModalIndex = 0;
+
+    // Monta os slides da galeria
+    modalTrack.innerHTML = data.images.map(src => `
+      <div class="modal-gallery-slide">
+        <img src="${src}" alt="${data.title}" loading="lazy" />
+      </div>
+    `).join("");
+
+    updateModalSlide(0);
+    galleryModal.classList.add("active");
+    document.body.style.overflow = "hidden"; // Desativa scroll da página
+  }
+
+  function closeGallery() {
+    galleryModal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // Evento de clique nos cards das modalidades
+  document.querySelectorAll(".sport-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const sport = card.getAttribute("data-sport");
+      openGallery(sport);
+    });
+  });
+
+  modalCloseBtn.addEventListener("click", closeGallery);
+  modalBackdrop.addEventListener("click", closeGallery);
+
+  modalPrevBtn.addEventListener("click", () => updateModalSlide(currentModalIndex - 1));
+  modalNextBtn.addEventListener("click", () => updateModalSlide(currentModalIndex + 1));
+
+  // Tecla ESC fecha a galeria
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && galleryModal.classList.contains("active")) {
+      closeGallery();
+    }
+  });
 });
