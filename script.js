@@ -85,26 +85,29 @@ document.addEventListener("DOMContentLoaded", () => {
     futebol: {
       title: "FUTEBOL",
       images: [
-        "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1000&auto=format&fit=crop"
+       "./images/ft01.jfif",
+       "./images/ft02.jfif",
+       "./images/ft03.jfif", 
+       "./images/ft04.jfif",
+       "./images/ft05.jfif",
+       "./images/ft06.jfif",
+       "./images/ft07.jfif",
+       "./images/ft08.jfif",
+       "./images/ft09.jfif",
+       "./images/ft10.jfif",
       ]
     },
     volei: {
-      title: "VÔLEI",
+      title: "BEACH TENNIS",
       images: [
-        "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1592656094267-764a45160876?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1578269174936-2709b6aeb913?q=80&w=1000&auto=format&fit=crop"
-      ]
-    },
-    basquete: {
-      title: "BASQUETE",
-      images: [
-        "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000&auto=format&fit=crop"
+        "./images/bt01.jfif",
+        "./images/bt02.jfif",
+        "./images/bt03.jfif",
+        "./images/bt04.jfif",
+        "./images/bt05.jfif",
+        "./images/bt06.jfif",
+        "./images/bt07.jfif",
+        "./images/bt08.jfif"
       ]
     }
   };
