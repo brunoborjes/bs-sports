@@ -23,7 +23,7 @@
         
         <!-- Direita: Menus e Botões -->
         <div class="header-right">
-          <!-- Links Desktop (Somem ao rolar a página) -->
+          <!-- Links Desktop (Sempre visíveis no Desktop) -->
           <div class="desktop-menu">
             <nav class="nav-desktop">
               <a href="#inicio" class="nav-link">Início</a>
@@ -34,16 +34,15 @@
             <a href="https://copafacil.com/" class="btn btn-primary nav-btn" target="_blank" rel="noopener noreferrer">Acessar Plataforma</a>
           </div>
           
-          <!-- Botão Hamburger (Aparece no Celular ou ao rolar no PC) -->
+          <!-- Botão Hamburger (Aparece apenas no Celular/Tablet) -->
           <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menu">
             <span></span><span></span><span></span>
           </button>
         </div>
       </div>
-    </header> <!-- O Header agora fecha AQUI, separando-o do menu lateral -->
+    </header> 
 
-    <!-- MENU LATERAL (GAVETA) -->
-    <!-- Como agora está fora do Header, os cliques funcionarão perfeitamente -->
+    <!-- MENU LATERAL (GAVETA MOBILE) -->
     <div class="menu-overlay" id="menu-overlay"></div>
     <nav class="side-menu" id="side-menu">
       <a href="#inicio" class="side-link">Início</a>
@@ -62,10 +61,11 @@
       <div class="container hero-content">
         <h1 class="hero-title reveal-hero typing-title" aria-label="Grandes eventos. Grandes experiências.">
           <span class="type-sizer" aria-hidden="true">
-            Grandes eventos.<br /><span class="text-gold">Grandes experiências.</span>
+            <span class="type-line">Grandes eventos.</span><br />
+            <span class="text-gold type-line">Grandes experiências.</span>
           </span>
           <span class="type-live" aria-hidden="true">
-            <span id="type-1"></span><span class="type-ball" id="type-ball">
+            <span id="type-1" class="type-line"></span><span class="type-ball" id="type-ball">
               <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs><clipPath id="ball-clip"><circle cx="50" cy="50" r="47" /></clipPath></defs>
                 <circle cx="50" cy="50" r="47" fill="#fff" />
@@ -84,7 +84,7 @@
                 </g>
                 <circle cx="50" cy="50" r="47" fill="none" stroke="#050505" stroke-width="4" />
               </svg>
-            </span><br /><span class="text-gold" id="type-2"></span>
+            </span><br /><span class="text-gold type-line" id="type-2"></span>
           </span>
         </h1>
         <p class="hero-subtitle reveal-hero delay-1">
@@ -113,7 +113,7 @@
       </div>
     </section>
 
-    <!-- SOBRE A EMPRESA (TIMELINE ZIG-ZAG) -->
+    <!-- SOBRE A EMPRESA -->
     <section id="sobre" class="section about-section">
       <div class="about-field-bg"></div>
       <div class="about-overlay"></div>
@@ -172,8 +172,9 @@
             </div>
             <div class="sport-overlay-bg"></div>
           </div>
+          
           <!-- CARD Beach Tennis -->
-          <div class="sport-card reveal delay-2" data-sport="volei">
+          <div class="sport-card reveal delay-2" data-sport="beachtennis">
             <img src="./images/bt05.jfif" alt="Beach Tennis" loading="lazy" />
             <div class="sport-content">
               <div class="sport-icon">
@@ -183,8 +184,32 @@
             </div>
             <div class="sport-overlay-bg"></div>
           </div>
-        
+
+          <!-- CARD FUTSAL -->
+          <div class="sport-card reveal delay-3" data-sport="futsal">
+            <img src="./images/futsal1.jfif" alt="Futsal" loading="lazy" />
+            <div class="sport-content">
+              <div class="sport-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 12l3.5-2.5m-3.5 2.5l-3.5-2.5m3.5 2.5v4m3.5-6.5a4 4 0 01-7 0m7 0l2 2.5m-9-2.5l-2 2.5"/></svg>
+              </div>
+              <h3>FUTSAL</h3>
+            </div>
+            <div class="sport-overlay-bg"></div>
+          </div>
+
+          <!-- CARD CICLISMO -->
+          <div class="sport-card reveal delay-4" data-sport="ciclismo">
+            <img src="./images/bc4.jfif" alt="Ciclismo" loading="lazy" />
+            <div class="sport-content">
+              <div class="sport-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 5.5h2l4-4"/><path d="M12 11.5 9.5 9 6 10"/><path d="M5.5 17.5 9.5 9h3l2 4 4 1"/></svg>
+              </div>
+              <h3>CICLISMO</h3>
+            </div>
+            <div class="sport-overlay-bg"></div>
+          </div>
         </div>
+
         <div class="text-center mt-5 reveal delay-4">
           <h3 class="font-heading uppercase tracking-wide text-gold">E muito mais</h3>
         </div>
@@ -213,7 +238,7 @@
           <div class="footer-contact reveal delay-2">
             <h4 class="footer-title">Contato</h4>
             <div class="contact-info">
-              <a href="mailto:contato@bssports.com.br" class="contact-link">brunosantosdesouza635@gmail.com</a>
+              <a href="mailto:brunosantosdesouza635@gmail.com" class="contact-link">brunosantosdesouza635@gmail.com</a>
               <a href="tel:+5524992689308" class="contact-link">(24) 99268-9308</a>
             </div>
             <div class="social-links mt-3">
@@ -232,7 +257,7 @@
       </div>
     </footer>
     
-    <!-- MODAL DE GALERIA DE FOTOS (Abre por cima do site) -->
+    <!-- MODAL DE GALERIA DE FOTOS -->
     <div class="gallery-modal" id="galleryModal">
       <div class="modal-backdrop" id="modalBackdrop"></div>
       <div class="modal-card">
