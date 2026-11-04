@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BS SPORTS - Organização Esportiva</title>
-    <link rel="icon" type="image/png" sizes="512x512" href="./images/logo-sem-fundo.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="./images/logo-sem-fundo.png" />
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="apple-touch-icon" href="./images/logo-sem-fundo.png" />
     <link rel="stylesheet" href="styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet" />
   </head>
   <body>
     <!-- HEADER PRINCIPAL -->
@@ -17,10 +23,13 @@
         <!-- Esquerda: Logo -->
         <div class="logo">
           <a href="#inicio" class="logo-link">
-            <img src="./images/BS_Sports_logo.png" alt="BS SPORTS" class="img-logo" />
+            <img
+              src="./images/BS_Sports_logo.png"
+              alt="BS SPORTS"
+              class="img-logo" />
           </a>
         </div>
-        
+
         <!-- Direita: Menus e Botões -->
         <div class="header-right">
           <!-- Links Desktop (Sempre visíveis no Desktop) -->
@@ -30,17 +39,27 @@
               <a href="#instagram" class="nav-link">Fotos</a>
               <a href="#sobre" class="nav-link">A Empresa</a>
               <a href="#modalidades" class="nav-link">Modalidades</a>
+              <a href="#inscricoes" class="nav-link">Inscrições</a>
             </nav>
-            <a href="https://copafacil.com/" class="btn btn-primary nav-btn" target="_blank" rel="noopener noreferrer">Acessar Plataforma</a>
+            <a
+              href="https://copafacil.com/"
+              class="btn btn-primary nav-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Acessar Plataforma</a
+            >
           </div>
-          
+
           <!-- Botão Hamburger (Aparece apenas no Celular/Tablet) -->
-          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menu">
+          <button
+            class="mobile-menu-btn"
+            id="mobile-menu-btn"
+            aria-label="Abrir menu">
             <span></span><span></span><span></span>
           </button>
         </div>
       </div>
-    </header> 
+    </header>
 
     <!-- MENU LATERAL (GAVETA MOBILE) -->
     <div class="menu-overlay" id="menu-overlay"></div>
@@ -49,49 +68,89 @@
       <a href="#instagram" class="side-link">Fotos</a>
       <a href="#sobre" class="side-link">A Empresa</a>
       <a href="#modalidades" class="side-link">Modalidades</a>
-      <a href="https://copafacil.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full mt-4">Acessar Plataforma</a>
+      <a href="#inscricoes" class="side-link">Inscrições</a>
+      <a
+        href="https://copafacil.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary w-full mt-4"
+        >Acessar Plataforma</a
+      >
     </nav>
 
     <!-- HERO -->
     <section id="inicio" class="hero">
       <div class="hero-bg">
-        <img src="./images/hero-bs-sports.jpg" alt="Futebol em ação" loading="lazy" />
+        <img
+          src="./images/hero-bs-sports.jpg"
+          alt="Futebol em ação"
+          loading="lazy" />
         <div class="hero-overlay"></div>
       </div>
       <div class="container hero-content">
-        <h1 class="hero-title reveal-hero typing-title" aria-label="Grandes eventos. Grandes experiências.">
+        <h1
+          class="hero-title reveal-hero typing-title"
+          aria-label="Grandes eventos. Grandes experiências.">
           <span class="type-sizer" aria-hidden="true">
             <span class="type-line">Grandes eventos.</span><br />
             <span class="text-gold type-line">Grandes experiências.</span>
           </span>
           <span class="type-live" aria-hidden="true">
-            <span id="type-1" class="type-line"></span><span class="type-ball" id="type-ball">
+            <span id="type-1" class="type-line"></span
+            ><span class="type-ball" id="type-ball">
               <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <defs><clipPath id="ball-clip"><circle cx="50" cy="50" r="47" /></clipPath></defs>
+                <defs>
+                  <clipPath id="ball-clip">
+                    <circle cx="50" cy="50" r="47" />
+                  </clipPath>
+                </defs>
                 <circle cx="50" cy="50" r="47" fill="#fff" />
-                <g clip-path="url(#ball-clip)" fill="#050505" stroke="#050505" stroke-width="2" stroke-linejoin="round">
-                  <polygon points="50,33 66.17,44.75 60,63.75 40,63.75 33.83,44.75" />
+                <g
+                  clip-path="url(#ball-clip)"
+                  fill="#050505"
+                  stroke="#050505"
+                  stroke-width="2"
+                  stroke-linejoin="round">
+                  <polygon
+                    points="50,33 66.17,44.75 60,63.75 40,63.75 33.83,44.75" />
                   <line x1="50" y1="33" x2="50" y2="3" />
                   <line x1="66.17" y1="44.75" x2="94.7" y2="35.5" />
                   <line x1="60" y1="63.75" x2="77.6" y2="88" />
                   <line x1="40" y1="63.75" x2="22.4" y2="88" />
                   <line x1="33.83" y1="44.75" x2="5.3" y2="35.5" />
-                  <polygon points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4" transform="translate(76.45 13.6) rotate(36)" />
-                  <polygon points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4" transform="translate(92.8 63.9) rotate(108)" />
-                  <polygon points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4" transform="translate(50 95) rotate(180)" />
-                  <polygon points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4" transform="translate(7.2 63.9) rotate(252)" />
-                  <polygon points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4" transform="translate(23.55 13.6) rotate(324)" />
+                  <polygon
+                    points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4"
+                    transform="translate(76.45 13.6) rotate(36)" />
+                  <polygon
+                    points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4"
+                    transform="translate(92.8 63.9) rotate(108)" />
+                  <polygon
+                    points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4"
+                    transform="translate(50 95) rotate(180)" />
+                  <polygon
+                    points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4"
+                    transform="translate(7.2 63.9) rotate(252)" />
+                  <polygon
+                    points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4"
+                    transform="translate(23.55 13.6) rotate(324)" />
                 </g>
-                <circle cx="50" cy="50" r="47" fill="none" stroke="#050505" stroke-width="4" />
-              </svg>
-            </span><br /><span class="text-gold type-line" id="type-2"></span>
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="47"
+                  fill="none"
+                  stroke="#050505"
+                  stroke-width="4" />
+              </svg> </span
+            ><br /><span class="text-gold type-line" id="type-2"></span>
           </span>
         </h1>
         <p class="hero-subtitle reveal-hero delay-1">
-          Especialistas na organização e realização de competições esportivas de alto nível. Elevamos o padrão do seu esporte.
+          Especialistas na organização e realização de competições esportivas de
+          alto nível. Elevamos o padrão do seu esporte.
         </p>
         <div class="hero-buttons reveal-hero delay-2">
-          <a href="https://copafacil.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Acessar Plataforma</a>
+          <a href="#inscricoes" class="btn btn-primary">Eventos Abertos</a>
           <a href="#modalidades" class="btn btn-outline">Ver Modalidades</a>
         </div>
       </div>
@@ -101,14 +160,30 @@
     <section id="instagram" class="section bg-darker">
       <div class="container">
         <div class="section-header text-center reveal">
-          <h2 class="section-title">Nosso <span class="text-gold">Instagram</span></h2>
-          <p class="section-subtitle">Bastidores, resultados e os melhores momentos dos nossos eventos no Instagram.</p>
+          <h2 class="section-title">
+            Nosso <span class="text-gold">Instagram</span>
+          </h2>
+          <p class="section-subtitle">
+            Bastidores, resultados e os melhores momentos dos nossos eventos no
+            Instagram.
+          </p>
         </div>
         <div class="instagram-embed reveal delay-1">
-          <iframe src="https://www.instagram.com/bs_sportsorganizacaoesportiva/embed" title="Instagram da BS SPORTS" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+          <iframe
+            src="https://www.instagram.com/bs_sportsorganizacaoesportiva/embed"
+            title="Instagram da BS SPORTS"
+            loading="lazy"
+            scrolling="no"
+            allowtransparency="true"></iframe>
         </div>
         <div class="text-center reveal delay-2 mt-4">
-          <a href="https://www.instagram.com/bs_sportsorganizacaoesportiva/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Seguir Perfil</a>
+          <a
+            href="https://www.instagram.com/bs_sportsorganizacaoesportiva/"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Seguir Perfil</a
+          >
         </div>
       </div>
     </section>
@@ -119,34 +194,61 @@
       <div class="about-overlay"></div>
       <div class="container about-container">
         <div class="section-header text-center reveal">
-          <h2 class="section-title">Nossa <span class="text-gold">História</span></h2>
+          <h2 class="section-title">
+            Nossa <span class="text-gold">História</span>
+          </h2>
         </div>
         <div class="story-timeline">
           <div class="story-row reveal delay-1">
             <div class="story-text">
               <h3 class="story-title text-gold">O INÍCIO DA JORNADA</h3>
-              <p>Desde nossa fundação, a BS SPORTS se dedicou a transformar a maneira como os eventos esportivos são vividos. Com foco na excelência, organização impecável e infraestrutura premium, criamos o ambiente perfeito para atletas brilharem e o público se emocionar.</p>
+              <p>
+                Desde nossa fundação, a BS SPORTS se dedicou a transformar a
+                maneira como os eventos esportivos são vividos. Com foco na
+                excelência, organização impecável e infraestrutura premium,
+                criamos o ambiente perfeito para atletas brilharem e o público
+                se emocionar.
+              </p>
             </div>
             <div class="story-image">
-              <img src="./images/bs01.jfif" alt="Início da Jornada" loading="lazy" />
+              <img
+                src="./images/bs01.jfif"
+                alt="Início da Jornada"
+                loading="lazy" />
             </div>
           </div>
           <div class="story-row reverse reveal delay-2">
             <div class="story-text">
               <h3 class="story-title text-gold">COMPROMISSO E EVOLUÇÃO</h3>
-              <p>Trabalhamos com dedicação em cada detalhe, desde o planejamento até o apito final, garantindo que cada competição seja uma verdadeira celebração do esporte. Nosso compromisso é continuar elevando o nível dos torneios em toda a região.</p>
+              <p>
+                Trabalhamos com dedicação em cada detalhe, desde o planejamento
+                até o apito final, garantindo que cada competição seja uma
+                verdadeira celebração do esporte. Nosso compromisso é continuar
+                elevando o nível dos torneios em toda a região.
+              </p>
             </div>
             <div class="story-image">
-              <img src="./images/bs02.jfif" alt="Compromisso e Evolução" loading="lazy" />
+              <img
+                src="./images/bs02.jfif"
+                alt="Compromisso e Evolução"
+                loading="lazy" />
             </div>
           </div>
           <div class="story-row reveal delay-3">
             <div class="story-text">
               <h3 class="story-title text-gold">INOVAÇÃO E FUTURO</h3>
-              <p>Olhando para o futuro, continuamos investindo em novas modalidades, tecnologias de gestão e parcerias estratégicas. Nosso objetivo é proporcionar experiências cada vez mais marcantes para atletas, torcedores e organizadores.</p>
+              <p>
+                Olhando para o futuro, continuamos investindo em novas
+                modalidades, tecnologias de gestão e parcerias estratégicas.
+                Nosso objetivo é proporcionar experiências cada vez mais
+                marcantes para atletas, torcedores e organizadores.
+              </p>
             </div>
             <div class="story-image">
-              <img src="./images/bs03.jfif" alt="Inovação e Futuro" loading="lazy" />
+              <img
+                src="./images/bs03.jfif"
+                alt="Inovação e Futuro"
+                loading="lazy" />
             </div>
           </div>
         </div>
@@ -157,8 +259,12 @@
     <section id="modalidades" class="section bg-darker">
       <div class="container">
         <div class="section-header text-center reveal">
-          <h2 class="section-title">Nossas <span class="text-gold">Modalidades</span></h2>
-          <p class="section-subtitle">Estrutura de ponta para os esportes mais competitivos.</p>
+          <h2 class="section-title">
+            Nossas <span class="text-gold">Modalidades</span>
+          </h2>
+          <p class="section-subtitle">
+            Estrutura de ponta para os esportes mais competitivos.
+          </p>
         </div>
         <div class="sports-grid">
           <!-- CARD FUTEBOL -->
@@ -166,19 +272,35 @@
             <img src="./images/bs01.jfif" alt="Futebol" loading="lazy" />
             <div class="sport-content">
               <div class="sport-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 12l3.5-2.5m-3.5 2.5l-3.5-2.5m3.5 2.5v4m3.5-6.5a4 4 0 01-7 0m7 0l2 2.5m-9-2.5l-2 2.5"/></svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M12 12l3.5-2.5m-3.5 2.5l-3.5-2.5m3.5 2.5v4m3.5-6.5a4 4 0 01-7 0m7 0l2 2.5m-9-2.5l-2 2.5" />
+                </svg>
               </div>
               <h3>Futebol</h3>
             </div>
             <div class="sport-overlay-bg"></div>
           </div>
-          
+
           <!-- CARD Beach Tennis -->
           <div class="sport-card reveal delay-2" data-sport="beachtennis">
             <img src="./images/bt05.jfif" alt="Beach Tennis" loading="lazy" />
             <div class="sport-content">
               <div class="sport-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2v20m10-10H2m15.536 7.536L4.464 4.464m15.072 0L4.464 19.536"/></svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M12 2v20m10-10H2m15.536 7.536L4.464 4.464m15.072 0L4.464 19.536" />
+                </svg>
               </div>
               <h3>BEACH TENNIS</h3>
             </div>
@@ -190,7 +312,15 @@
             <img src="./images/futsal1.jfif" alt="Futsal" loading="lazy" />
             <div class="sport-content">
               <div class="sport-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 12l3.5-2.5m-3.5 2.5l-3.5-2.5m3.5 2.5v4m3.5-6.5a4 4 0 01-7 0m7 0l2 2.5m-9-2.5l-2 2.5"/></svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M12 12l3.5-2.5m-3.5 2.5l-3.5-2.5m3.5 2.5v4m3.5-6.5a4 4 0 01-7 0m7 0l2 2.5m-9-2.5l-2 2.5" />
+                </svg>
               </div>
               <h3>FUTSAL</h3>
             </div>
@@ -202,7 +332,19 @@
             <img src="./images/bc4.jfif" alt="Ciclismo" loading="lazy" />
             <div class="sport-content">
               <div class="sport-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 5.5h2l4-4"/><path d="M12 11.5 9.5 9 6 10"/><path d="M5.5 17.5 9.5 9h3l2 4 4 1"/></svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="5.5" cy="17.5" r="3.5" />
+                  <circle cx="18.5" cy="17.5" r="3.5" />
+                  <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 5.5h2l4-4" />
+                  <path d="M12 11.5 9.5 9 6 10" />
+                  <path d="M5.5 17.5 9.5 9h3l2 4 4 1" />
+                </svg>
               </div>
               <h3>CICLISMO</h3>
             </div>
@@ -211,7 +353,40 @@
         </div>
 
         <div class="text-center mt-5 reveal delay-4">
-          <h3 class="font-heading uppercase tracking-wide text-gold">E muito mais</h3>
+          <h3 class="font-heading uppercase tracking-wide text-gold">
+            E muito mais
+          </h3>
+        </div>
+      </div>
+    </section>
+
+   <!-- INSCRIÇÕES -->
+    <section id="inscricoes" class="section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <h2 class="section-title">Próximas <span class="text-gold">Inscrições</span></h2>
+          <p class="section-subtitle">Garanta sua vaga nos maiores torneios e competições da região.</p>
+        </div>
+        
+        <div class="events-list">
+          
+          <!-- ----Evento Horizontal---- 1 -->
+          <article class="event-h-card reveal delay-1">
+            <div class="event-h-img">
+              <span class="event-status">Abertas</span>
+              <img src="./images/bt-bs.jfif" alt="Torneio Beach Tennis 2026" loading="lazy" />
+            </div>
+            <div class="event-h-body">
+              <div class="event-h-info">
+                <h3 class="event-h-title">Torneio Beach Tennis 2026</h3>
+              </div>
+              <div class="event-h-action">
+                <!-- COLOQUE O LINK DO FORMULÁRIO NO ATRIBUTO href ABAIXO (substitua o #) -->
+                <a href="#" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Realizar Inscrição</a>
+              </div>
+            </div>
+          </article>
+          
         </div>
       </div>
     </section>
@@ -222,9 +397,16 @@
         <div class="footer-grid">
           <div class="footer-brand reveal">
             <a href="#inicio" class="footer-logo-link">
-              <img src="./images/BS_Sports_logo.png" alt="BS SPORTS" class="footer-logo" loading="lazy" />
+              <img
+                src="./images/BS_Sports_logo.png"
+                alt="BS SPORTS"
+                class="footer-logo"
+                loading="lazy" />
             </a>
-            <p class="footer-desc">Elevando o padrão dos eventos esportivos. Profissionalismo, organização e paixão pelo esporte.</p>
+            <p class="footer-desc">
+              Elevando o padrão dos eventos esportivos. Profissionalismo,
+              organização e paixão pelo esporte.
+            </p>
           </div>
           <div class="footer-nav reveal delay-1">
             <h4 class="footer-title">Navegação</h4>
@@ -233,26 +415,50 @@
               <a href="#instagram">Fotos</a>
               <a href="#sobre">A Empresa</a>
               <a href="#modalidades">Modalidades</a>
+              <a href="#inscricoes">Inscrições</a>
             </nav>
           </div>
           <div class="footer-contact reveal delay-2">
             <h4 class="footer-title">Contato</h4>
             <div class="contact-info">
-              <a href="mailto:brunosantosdesouza635@gmail.com" class="contact-link">brunosantosdesouza635@gmail.com</a>
-              <a href="tel:+5524992689308" class="contact-link">(24) 99268-9308</a>
+              <a
+                href="mailto:brunosantosdesouza635@gmail.com"
+                class="contact-link"
+                >brunosantosdesouza635@gmail.com</a
+              >
+              <a href="tel:+5524992689308" class="contact-link"
+                >(24) 99268-9308</a
+              >
             </div>
             <div class="social-links mt-3">
-              <a href="https://wa.me/5524992689308" target="_blank" class="social-btn" aria-label="WhatsApp">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <a
+                href="https://wa.me/5524992689308"
+                target="_blank"
+                class="social-btn"
+                aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
               </a>
-              <a href="https://www.instagram.com/bs_sportsorganizacaoesportiva/" target="_blank" class="social-btn" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <a
+                href="https://www.instagram.com/bs_sportsorganizacaoesportiva/"
+                target="_blank"
+                class="social-btn"
+                aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg>
               </a>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2026 BS SPORTS - Organização Esportiva Ltda. Todos os direitos reservados.</p>
+          <p>
+            &copy; 2026 BS SPORTS - Organização Esportiva Ltda. Todos os
+            direitos reservados.
+          </p>
           <p class="footer-legal">
             <a href="privacidade.html">Política de Privacidade</a>
             <span aria-hidden="true"> · </span>
@@ -261,12 +467,17 @@
         </div>
       </div>
     </footer>
-    
+
     <!-- MODAL DE GALERIA DE FOTOS -->
     <div class="gallery-modal" id="galleryModal">
       <div class="modal-backdrop" id="modalBackdrop"></div>
       <div class="modal-card">
-        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Fechar galeria">&times;</button>
+        <button
+          class="modal-close-btn"
+          id="modalCloseBtn"
+          aria-label="Fechar galeria">
+          &times;
+        </button>
         <div class="modal-header">
           <h3 id="modalTitle" class="modal-title text-gold">FUTEBOL</h3>
           <p class="modal-subtitle">Galeria de fotos oficiais dos eventos</p>
@@ -276,14 +487,18 @@
             <div class="modal-gallery-track" id="modalGalleryTrack">
               <!-- Fotos inseridas dinamicamente via JS -->
             </div>
-            <button class="modal-nav-btn modal-prev" id="modalPrevBtn">&#10094;</button>
-            <button class="modal-nav-btn modal-next" id="modalNextBtn">&#10095;</button>
+            <button class="modal-nav-btn modal-prev" id="modalPrevBtn">
+              &#10094;
+            </button>
+            <button class="modal-nav-btn modal-next" id="modalNextBtn">
+              &#10095;
+            </button>
           </div>
           <div class="modal-counter" id="modalCounter">1 / 4</div>
         </div>
       </div>
     </div>
-    
+
     <script src="script.js"></script>
   </body>
 </html>
