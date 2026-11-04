@@ -223,3 +223,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// ===============================================
+// MODAL DE IMAGEM ÚNICA (EVENTOS HORIZONTAIS)
+// ===============================================
+window.openSingleImage = function(imageSrc) {
+  const modal = document.getElementById("singleImageModal");
+  const modalImg = document.getElementById("singleModalImg");
+  
+  if (modal && modalImg) {
+    modalImg.src = imageSrc; 
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden"; 
+  }
+};
+
+window.closeSingleImage = function() {
+  const modal = document.getElementById("singleImageModal");
+  if (modal) {
+    modal.classList.remove("active");
+    document.body.style.overflow = ""; 
+  }
+};
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeSingleImage();
+  }
+});
