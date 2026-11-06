@@ -498,8 +498,9 @@ h1, h2, h3, h4, h5, h6 {
 ======================================================== */
 .instagram-embed iframe {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  border-radius: 25px;
   display: block;
   height: calc(66.67cqw + 120px);
   max-height: 750px;
