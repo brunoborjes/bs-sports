@@ -466,6 +466,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 0.6em;
   margin-left: 0.15em;
   vertical-align: baseline;
+  position: relative;
+  top: -0.1em;
 }
 .type-ball svg {
   display: block;
@@ -1038,7 +1040,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ========================================================
-   MODAL PARA AMPLIAR A IMAGEM DO EVENTO (NOVO)
+   MODAL PARA AMPLIAR A IMAGEM DO EVENTO
 ======================================================== */
 .single-image-modal {
   position: fixed;
