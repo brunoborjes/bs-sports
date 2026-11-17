@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const ballSvg = typeBall.querySelector("svg");
 
     async function typeText(el, text) {
-      el.after(typeBall);
+      el.parentNode.appendChild(typeBall);
       for (const ch of text) {
         el.textContent += ch;
         ballAngle += 45;
